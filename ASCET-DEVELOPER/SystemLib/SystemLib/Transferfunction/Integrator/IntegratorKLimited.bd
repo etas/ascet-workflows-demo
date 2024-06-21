@@ -1,0 +1,134 @@
+classType SystemLib.Transferfunction.Integrator.IntegratorKLimited
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_6
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_2
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (81, 65) {
+		label at (0, -1)
+		outPin {
+			connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (221, 65) {
+		label at (0, -1)
+		inPin connection_3 {
+			bendpoints (10, 0), (10, 0)
+		}
+		outPin {
+			connection_4
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_2
+		}
+	}
+	return at  (411, 65) {
+		label at (0, 0)
+		inPin connection_4 {
+			bendpoints (10, 0), (10, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier compute.val at  (81, 235) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_12
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	multiplication at  (281, 156) size (2, 9) {
+		inPin connection_15 inPin connection_13 inPin connection_12 outPin {
+			connection_11
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (71, 155) {
+		label at (10, -1)
+		inPin outPin {
+			connection_15
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	addition at  (361, 196) {
+		inPin connection_11
+		inPin connection_5 {
+			bendpoints (50, 0), (50, 60), 
+		(-320, 60)
+		}
+		outPin {
+			connection_10
+		}
+	}
+	minimum at  (481, 206) {
+		inPin connection_10 inPin connection_14 outPin {
+			connection_9
+		}
+	}
+	maximum at  (561, 216) size (2, 6) {
+		inPin connection_9
+		inPin connection_8 {
+			bendpoints 
+		(110, 0)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	simpleIdentifier memory at  (631, 235) {
+		label at (0, -1)
+		inPin connection_7 outPin {
+			connection_5
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_6
+		}
+	}
+	methodArgumentIdentifier compute.mx at  (411, 225) {
+		label at (0, -1)
+		outPin {
+			connection_14
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.K at  (81, 195) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_13
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.mn at  (411, 265) {
+		label at (10, -1)
+		outPin {
+			connection_8
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+}

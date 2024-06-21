@@ -1,0 +1,11 @@
+Component SystemLib.Nonlinears.Hysteresis_LSP_RSP size ( 6 , 4 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -3 , 0 )
+	
+	methodLayout value {
+		pin value ( Right , 1 )
+		pin lsp ( Top , 0 )
+		pin x ( Left , 1 )
+		pin rsp ( Top , 4 )
+	}
+}

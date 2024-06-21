@@ -1,0 +1,14 @@
+Component SystemLib.CounterTimer.Counter size ( 6 , 4 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -3 , -4 )
+	
+	methodLayout compute {
+		pin compute ( Left , 1 )
+	}
+	methodLayout reset {
+		pin reset ( Bottom , 2 )
+	}
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+}

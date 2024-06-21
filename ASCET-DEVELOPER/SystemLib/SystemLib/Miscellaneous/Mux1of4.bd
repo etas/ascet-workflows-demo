@@ -1,0 +1,111 @@
+classType SystemLib.Miscellaneous.Mux1of4
+blockdiagramSpecification Main {
+	methodBody value {
+		outPin active {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier value.b0 at  (31, 85) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_6, connection_4
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier value.b1 at  (31, 45) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_9
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	conditionalSelect at  (171, 121) size (2, 5) {
+		inPin connection_5 inPin CASE_CONDITION connection_4 {
+			bendpoints 
+		(120, 0)
+		}
+		inPin connection_3 outPin {
+			connection_10
+		}
+	}
+	methodArgumentIdentifier value.s0 at  (31, 135) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier value.s1 at  (31, 165) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	conditionalSelect at  (341, 231) {
+		inPin connection_10 {
+			bendpoints (110, 0), 
+		(110, 100)
+		}
+		inPin CASE_CONDITION connection_9 {
+			bendpoints 
+		(290, 0)
+		}
+		inPin connection_11 {
+			bendpoints (110, 0), 
+		(110, -60)
+		}
+		outPin {
+			connection_2
+		}
+	}
+	return at  (431, 255) {
+		label at (0, 0)
+		inPin connection_2 {
+			bendpoints (50, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	conditionalSelect at  (171, 301) size (2, 5) {
+		inPin connection_7 inPin CASE_CONDITION connection_6 {
+			bendpoints (120, 0)
+		}
+		inPin connection_8 outPin {
+			connection_11
+		}
+	}
+	methodArgumentIdentifier value.s2 at  (31, 315) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_7
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier value.s3 at  (31, 345) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_8
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+}

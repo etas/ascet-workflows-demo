@@ -1,0 +1,144 @@
+classType SystemLib.Nonlinears.Hysteresis_LSP_Delta
+blockdiagramSpecification Main {
+	methodBody value {
+		outPin active {
+			connection_1, connection_3
+		}
+	}
+	methodArgumentIdentifier value.x at (31, 25) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	greater at  (261, 26) size (2, 5) {
+		inPin connection_5 inPin connection_6 {
+			bendpoints 
+		(30, 0)
+		}
+		outPin {
+			connection_4
+		}
+	}
+	ifElse at  (351, 41) {
+		inPin connection_4 ifControlFlowOutPin {
+			connection_17
+		}
+		elseControlFlowOutPin {
+			connection_18
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_1
+		}
+	}
+	literal Boolean "true" at  (431, 73) size (49, 0) {
+		outPin {
+			connection_10
+		}
+	}
+	methodArgumentIdentifier value.deltav at (31, 75) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_7
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier hysterese at  (561, 75) {
+		label at (0, -1)
+		inPin connection_10 outPin sequenceCall at (20, -14) {
+			inPin connection_17 {
+				bendpoints 
+			(160, 0), (160, 20)
+			}
+		}
+	}
+	addition at  (191, 76) size (2, 5) {
+		inPin connection_7 inPin connection_8 {
+			bendpoints 
+		(120, 0)
+		}
+		outPin {
+			connection_6
+		}
+	}
+	methodArgumentIdentifier value.lsp at (31, 115) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_8
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier value.x at  (31, 175) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_12
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	less at  (251, 176) size (2, 6) {
+		inPin connection_12 inPin connection_13 outPin {
+			connection_11
+		}
+	}
+	if at  (421, 191) {
+		inPin connection_11 ifControlFlowOutPin {
+			connection_19
+		}
+		sequenceCall at  (0, -20) {
+			inPin connection_18 {
+				bendpoints (0, 100)
+			}
+		}
+	}
+	methodArgumentIdentifier value.lsp at  (31, 225) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_13
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	literal Boolean "false" at  (431, 293) size (49, 0) {
+		outPin {
+			connection_16
+		}
+	}
+	simpleIdentifier hysterese at  (531, 295) {
+		label at (0, -1)
+		inPin connection_16 {
+			bendpoints (0, 0)
+		}
+		outPin {
+			connection_14
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_19 {
+				bendpoints (50, 0), (50, 90)
+			}
+		}
+	}
+	return at  (641, 295) {
+		label at (0, 0)
+		inPin connection_14 {
+			bendpoints (10, 0), (10, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+}

@@ -1,0 +1,175 @@
+classType SystemLib.CounterTimer.TimerRetriggerEnabled
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_3, connection_1, connection_7
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_4
+		}
+	}
+	methodArgumentIdentifier compute.val at  (41, 155) {
+		label at (0, -1)
+		outPin {
+			connection_8, connection_6
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	and at  (401, 156) size (2, 6) {
+		inPin connection_6 inPin connection_5 {
+			bendpoints 
+		
+		(30, 0)
+		}
+		outPin {
+			connection_10
+		}
+	}
+	not at   (331, 201) {
+		inPin connection_9 outPin {
+			connection_5
+		}
+	}
+	simpleIdentifier inOld at   (231, 205) {
+		label at (10, -1)
+		inPin connection_8 {
+			bendpoints (80, 0), 
+		
+		(80, 50)
+		}
+		outPin {
+			connection_9
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_7
+		}
+	}
+	if at  (241, 21) {
+		inPin connection_11 ifControlFlowOutPin {
+			connection_24
+		}
+		sequenceCall at (-30, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier compute.enable at  (41, 25) {
+		label at (0, -1)
+		outPin {
+			connection_11
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	if at  (491, 171) {
+		inPin connection_10 ifControlFlowOutPin {
+			connection_26
+		}
+		sequenceCall at  (0, -20) {
+			inPin connection_24 {
+				bendpoints 
+			(200, 0)
+			}
+		}
+	}
+	methodArgumentIdentifier compute.startTime at  (41, 265) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_20
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier timeCounter at  (571, 265) {
+		label at (-10, -1)
+		inPin connection_20 outPin {
+			connection_22
+		}
+		sequenceCall at (20, -14) {
+			inPin connection_26 {
+				bendpoints (20, 0), 
+			(20, 80)
+			}
+		}
+	}
+	greater at  (731, 266) size (2, 4) {
+		inPin connection_22 inPin connection_23 outPin {
+			connection_21
+		}
+	}
+	return at  (831, 275) {
+		label at (0, 0)
+		inPin connection_21 sequenceCall at (0, -14) {
+			inPin connection_4
+		}
+	}
+	literal Numeric "0.0" at  (671, 293) size (49, 0) {
+		outPin {
+			connection_23
+		}
+	}
+	if at  (251, 341) {
+		inPin connection_18 ifControlFlowOutPin {
+			connection_25
+		}
+		sequenceCall at  (0, -20) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier compute.enable at  (41, 345) {
+		label at (0, -1)
+		outPin {
+			connection_18
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	subtraction at  (371, 396) {
+		inPin connection_14 {
+			bendpoints (50, 0), (50, 70), (-370, 70), 
+		(-370, -30)
+		}
+		inPin connection_16 outPin {
+			connection_15
+		}
+	}
+	maximum at  (511, 406) size (2, 6) {
+		inPin connection_15 inPin connection_17 outPin {
+			connection_13
+		}
+	}
+	simpleIdentifier timeCounter at  (581, 425) {
+		label at (0, -1)
+		inPin connection_13 outPin {
+			connection_14
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_25 {
+				bendpoints 
+			(290, 0)
+			}
+		}
+	}
+	literal Numeric "0.0" at  (401, 453) size (49, 0) {
+		outPin {
+			connection_17
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (291, 415) {
+		label at 
+		(0, -1)
+		inPin outPin {
+			connection_16
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+}

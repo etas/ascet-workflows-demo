@@ -1,0 +1,10 @@
+Component SystemLib.Bitoperations.writeBit size ( 4 , 4 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , -5 )
+	methodLayout getWriteBit {
+		pin getWriteBit ( Right , 1 )
+		pin bitArray ( Left , 0 )
+		pin position ( Bottom , 1 )
+		pin aBool ( Left , 2 )
+	}
+}

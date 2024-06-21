@@ -1,0 +1,179 @@
+classType SystemLib.Transferfunction.Integrator.IntegratorTEnabled
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_3
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_2
+		}
+	}
+	if at  (211, 51) {
+		inPin connection_19 ifControlFlowOutPin {
+			connection_21
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_2
+		}
+	}
+	methodArgumentIdentifier reset.initEnable at  (41, 55) {
+		label at (0, -1)
+		outPin {
+			connection_19
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (41, 125) {
+		label at (0, -1)
+		outPin {
+			connection_16
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (331, 125) {
+		label at (0, -1)
+		inPin connection_16 outPin {
+			connection_17
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_21 {
+				bendpoints (70, 0), 
+			(70, 60)
+			}
+		}
+	}
+	return at  (411, 125) {
+		label at (0, 0)
+		inPin connection_17 {
+			bendpoints (10, 0), (10, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	if at  (211, 211) {
+		inPin connection_20 ifControlFlowOutPin {
+			connection_22
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier compute.enable at  (31, 215) {
+		label at (0, -1)
+		outPin {
+			connection_20
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (21, 275) {
+		label at (10, -1)
+		inPin outPin {
+			connection_18
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	division at  (191, 276) size (2, 5) {
+		inPin connection_18 inPin connection_4 {
+			bendpoints 
+		(120, 0)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	multiplication at  (251, 296) {
+		inPin connection_7 inPin connection_6 {
+			bendpoints 
+		(180, 0)
+		}
+		outPin {
+			connection_5
+		}
+	}
+	addition at  (301, 306) {
+		inPin connection_5 inPin connection_9 {
+			bendpoints (30, 0), (30, 60), 
+		(-340, 60)
+		}
+		outPin {
+			connection_8
+		}
+	}
+	minimum at  (441, 316) {
+		inPin connection_8 inPin connection_11 outPin {
+			connection_10
+		}
+	}
+	maximum at  (511, 326) size (2, 5) {
+		inPin connection_10
+		inPin connection_14 outPin {
+			connection_13
+		}
+	}
+	simpleIdentifier memory at  (591, 345) {
+		label at (0, -1)
+		inPin connection_13 outPin {
+			connection_9
+		}
+		sequenceCall at (10, -24) {
+			inPin connection_22 {
+				bendpoints 
+			(340, 0)
+			}
+		}
+	}
+	methodArgumentIdentifier compute.T at  (31, 315) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.mx at  (351, 335) {
+		label at (10, -1)
+		outPin {
+			connection_11
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.mn at  (361, 365) {
+		label at (10, -1)
+		outPin {
+			connection_14
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.val at (31, 365) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+}

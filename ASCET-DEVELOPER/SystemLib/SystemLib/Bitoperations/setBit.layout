@@ -1,0 +1,9 @@
+Component SystemLib.Bitoperations.setBit size ( 4 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , -3 )
+	methodLayout getSetBit {
+		pin getSetBit ( Right , 0 )
+		pin bitArray ( Left , 0 )
+		pin position ( Bottom , 1 )
+	}
+}

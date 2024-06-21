@@ -1,0 +1,15 @@
+/begin MOD_PAR
+	""
+	VERSION "000"
+	ADDR_EPK 0x0800F7e0
+	EPK "ASCET GitHub Actions (#AGA_REVISION#)"
+	SUPPLIER "ETAS GmbH"
+	CUSTOMER "xxx"
+	CUSTOMER_NO "000"
+	USER "xxx"
+	PHONE_NO "000"
+	ECU "Nucleo Demo Board"
+	CPU_TYPE "Arm Cortex-M4"
+	NO_OF_INTERFACES 1
+	/include "memorysegment.a2l"
+/end MOD_PAR

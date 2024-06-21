@@ -1,0 +1,66 @@
+classType SystemLib.Miscellaneous.EdgeBi
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_6, connection_2
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier compute.signal at  (31, 105) {
+		label at (0, -1)
+		outPin {
+			connection_4, connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	notEqual at  (341, 106) {
+		inPin connection_4 inPin connection_5 {
+			bendpoints 
+		(60, 0)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	simpleIdentifier buffer at  (421, 115) {
+		label at (0, -1)
+		inPin connection_7 {
+			bendpoints (40, 0)
+		}
+		outPin {
+			connection_8
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_6
+		}
+	}
+	return at  (561, 115) {
+		label at (0, 0)
+		inPin connection_8 {
+			bendpoints (10, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	simpleIdentifier oldSignal at  (231, 155) {
+		label at (0, -1)
+		inPin connection_3 {
+			bendpoints (110, 0), 
+		
+		(110, 50)
+		}
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_2
+		}
+	}
+}

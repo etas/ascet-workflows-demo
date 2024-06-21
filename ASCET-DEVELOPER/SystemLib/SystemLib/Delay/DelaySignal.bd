@@ -1,0 +1,46 @@
+classType SystemLib.Delay.DelaySignal
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_2, connection_5
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier compute.signal at (61, 75) {
+		label at (0, -1)
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory1 at  (201, 75) {
+		label at (0, -1)
+		inPin connection_6 outPin {
+			connection_3
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_5
+		}
+	}
+	simpleIdentifier memory2 at  (331, 75) {
+		label at (0, -1)
+		inPin connection_3 outPin {
+			connection_4
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_2
+		}
+	}
+	return at  (481, 75) {
+		label at (0, 0)
+		inPin connection_4 sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+}

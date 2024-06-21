@@ -1,0 +1,11 @@
+Component SystemLib.Miscellaneous.DifferenceQuotient size ( 3 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -1 , 1 )
+	methodLayout compute {
+		pin valCompute ( Left , 0 )
+	}
+
+	methodLayout value {
+		pin value ( Right , 0 )
+	}
+}

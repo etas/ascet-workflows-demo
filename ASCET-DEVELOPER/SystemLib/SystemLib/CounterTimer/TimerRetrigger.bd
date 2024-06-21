@@ -1,0 +1,91 @@
+classType SystemLib.CounterTimer.TimerRetrigger
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_4
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody begin {
+		outPin {
+			connection_11
+		}
+	}
+	methodArgumentIdentifier begin.startTime at (81, 55) {
+		label at (0, -1)
+		outPin {
+			connection_12
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier timeCounter at  (241, 55) {
+		label at (0, -1)
+		inPin connection_12 outPin {
+			connection_10
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_11
+		}
+	}
+	greater at  (391, 56) size (2, 6) {
+		inPin connection_10 inPin connection_8 outPin {
+			connection_9
+		}
+	}
+	return at  (491, 75) {
+		label at (0, 0)
+		inPin connection_9 sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	literal Numeric "0.0" at  (251, 103) size (49, 0) {
+		outPin {
+			connection_8
+		}
+	}
+	subtraction at  (231, 166) size (2, 4) {
+		inPin connection_6 {
+			bendpoints (70, 0), (70, 80), (-480, 80), 
+		
+		(-480, -20)
+		}
+		inPin connection_2 outPin {
+			connection_3
+		}
+	}
+	maximum at  (381, 176) size (2, 4) {
+		inPin connection_3 inPin connection_7 outPin {
+			connection_5
+		}
+	}
+	simpleIdentifier timeCounter at   (501, 185) {
+		label at 
+		(-10, -1)
+		inPin connection_5 outPin {
+			connection_6
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_4
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (121, 195) {
+		label at (10, -1)
+		inPin outPin {
+			connection_2
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	literal Numeric "0.0" at  (291, 203) size (49, 0) {
+		outPin {
+			connection_7
+		}
+	}
+}

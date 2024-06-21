@@ -1,0 +1,3 @@
+Component SystemLib.Miscellaneous.DeltaTimeService size ( 12 , 12 ) backgroundColor #ffffff {
+	labelPosition ( -6 , 1 )
+}

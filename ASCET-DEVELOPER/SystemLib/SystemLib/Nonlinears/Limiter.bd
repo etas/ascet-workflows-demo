@@ -1,0 +1,55 @@
+classType SystemLib.Nonlinears.Limiter
+blockdiagramSpecification Main {
+	methodBody value {
+		outPin active {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier value.x at (111, 105) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	minimum at  (261, 106) size (2, 5) {
+		inPin connection_4 inPin connection_3 outPin {
+			connection_6
+		}
+	}
+	maximum at  (371, 126) size (2, 8) {
+		inPin connection_6
+		inPin connection_2 outPin {
+			connection_5
+		}
+	}
+	return at  (491, 155) {
+		label at (0, 0)
+		inPin connection_5 sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier value.mx at  (111, 145) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier value.mn at  (111, 195) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_2
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+}

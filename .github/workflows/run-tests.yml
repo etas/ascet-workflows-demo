@@ -1,0 +1,79 @@
+name: Run EUnit Tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+defaults:
+  run:
+    shell: cmd
+
+env:
+  ASCET_INSTALL_PATH: C:/ETAS/ASCET-DEVELOPER7.9
+  PROJECT_CHECKOUT: checkout
+  ASCET_WORKSPACE: ascet-workspace
+  ST_BUILD_FOLDER: STM32CubeIDE\GithubActions_ST
+  TEST_RESULTS_FILE: BalanceTube_EUnit_CGen\Debug\BalanceTubeTest.xml
+
+jobs:
+  tests:
+    name: EUnit Tests
+    runs-on: ascet
+    permissions:
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        path: ${{ env.PROJECT_CHECKOUT }}
+    - name: Create Workspace
+      run: > 
+        "${{ env.ASCET_INSTALL_PATH }}/ascet.exe"
+        -nosplash 
+        -data "${{ env.ASCET_WORKSPACE }}"
+        -application org.eclipse.cdt.managedbuilder.core.headlessbuild
+        -importAll "${{ env.PROJECT_CHECKOUT }}/ASCET-DEVELOPER" 
+        -cleanBuild all
+    - name: Remove Previous Test Results
+      run: |
+        if exist "${{ env.ASCET_WORKSPACE }}\${{ env.TEST_RESULTS_FILE }}" (
+          del /S /Q "${{ env.ASCET_WORKSPACE }}\${{ env.TEST_RESULTS_FILE }}"
+        )
+    - name: Run Unit Tests
+      run: >
+        "${{ env.ASCET_INSTALL_PATH }}/ascet-cli.bat"
+        -w "${{ github.workspace }}/${{ env.ASCET_WORKSPACE }}"
+        -l /BalanceTube/BalanceTubeTest_EUnit.launch
+    - name: Check for Required Files
+      run: |
+        if not exist "${{ env.ASCET_WORKSPACE }}\${{ env.TEST_RESULTS_FILE }}" (
+          echo "No test results found. Perhaps code generation had errors?"
+          exit 1
+        )
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action/windows@v2
+      with:
+        files: ${{ env.ASCET_WORKSPACE }}/${{ env.TEST_RESULTS_FILE }}
+        action_fail: true
+    - name: Generate ECU Code
+      if: always()
+      run: >
+        "${{ env.ASCET_INSTALL_PATH }}/ascet-cli.bat"
+        -w "${{ github.workspace }}/${{ env.ASCET_WORKSPACE }}"
+        -l /BalanceTube/BalanceTube_STMicro.launch
+    - name: Check for Code Changes
+      if: always()
+      env:
+        GEN_SRC_FOLDER: ${{ env.ST_BUILD_FOLDER }}\src-gen\src
+      run: |
+        if (git status --porcelain "${{ env.GEN_SRC_FOLDER }}") {
+          git diff "${{ env.GEN_SRC_FOLDER }}"
+          echo "Generated code has changed. Please commit the updated files locally."
+          exit 1
+        }
+      shell: pwsh
+      working-directory: ${{ env.PROJECT_CHECKOUT }}

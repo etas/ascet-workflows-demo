@@ -1,0 +1,99 @@
+classType SystemLib.Memory.AccumulatorLimited
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_9
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_3
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (41, 55) {
+		label at (0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (181, 55) {
+		label at (0, -1)
+		inPin connection_4 outPin {
+			connection_2
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+	return at  (321, 55) {
+		label at (0, 0)
+		inPin connection_2 sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier compute.valCompute at (41, 185) {
+		label at (-10, -1)
+		outPin {
+			connection_7
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	addition at  (181, 186) {
+		inPin connection_7 inPin connection_11 {
+			bendpoints (70, 0), (70, 80), 
+		(-380, 80), (-380, -20)
+		}
+		outPin {
+			connection_12
+		}
+	}
+	minimum at  (341, 196) {
+		inPin connection_12 inPin connection_5 outPin {
+			connection_8
+		}
+	}
+	maximum at  (431, 206) size (2, 5) {
+		inPin connection_8
+		inPin connection_6 outPin {
+			connection_10
+		}
+	}
+	simpleIdentifier memory at  (501, 225) {
+		label at (0, -1)
+		inPin connection_10 outPin {
+			connection_11
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_9
+		}
+	}
+	methodArgumentIdentifier compute.mx at  (251, 215) {
+		label at (0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.mn at  (251, 245) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+}

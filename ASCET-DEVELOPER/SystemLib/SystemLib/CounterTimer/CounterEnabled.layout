@@ -1,0 +1,13 @@
+Component SystemLib.CounterTimer.CounterEnabled size ( 6 , 4 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -3 , -4 )
+	methodLayout compute {
+		pin enable ( Bottom , 0 )
+	}
+	methodLayout reset {
+		pin initEnable ( Bottom , 4 )
+	}
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+}

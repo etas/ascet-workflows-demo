@@ -1,0 +1,11 @@
+Component SystemLib.Comparators.ClosedInterval size ( 4 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , 0 )
+
+	methodLayout value {
+		pin value ( Right , 0 )
+		pin A ( Top , 0 )
+		pin x ( Left , 0 )
+		pin B ( Top , 2 )
+	}
+}

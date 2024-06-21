@@ -1,0 +1,140 @@
+classType SystemLib.CounterTimer.CountDownEnabled
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_3
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody begin {
+		outPin {
+			connection_4
+		}
+	}
+	methodArgumentIdentifier begin.startValue at (41, 45) {
+		label at (0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier counter at (181, 45) {
+		label at (0, -1)
+		inPin connection_5
+		outPin {
+			connection_6
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_4
+		}
+	}
+	greater at (381, 46) size (2, 5) {
+		inPin connection_6
+		inPin connection_8 {
+			bendpoints (30, 0)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	return at (501, 65) {
+		label at (0, 0)
+		inPin connection_7
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	literal Numeric "0" at (301, 83) size (49, 0) {
+		outPin {
+			connection_8
+		}
+	}
+	if at (181, 161) {
+		inPin connection_17
+		ifControlFlowOutPin {
+			connection_18
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier compute.enable at (31, 165) {
+		label at (0, -1)
+		outPin {
+			connection_17
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier counter at (31, 235) {
+		label at (0, -1)
+		inPin outPin {
+			connection_13
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	equal at (181, 236) size (2, 4) {
+		inPin connection_13
+		inPin connection_15
+		outPin {
+			connection_14
+		}
+	}
+	not at (251, 241) {
+		inPin connection_14
+		outPin {
+			connection_16
+		}
+	}
+	if at (381, 241) {
+		inPin connection_16
+		ifControlFlowOutPin {
+			connection_19
+		}
+		sequenceCall at (10, -20) {
+			inPin connection_18 {
+				bendpoints (110, 0), (110, 60)
+			}
+		}
+	}
+	literal Numeric "0" at (41, 263) size (49, 0) {
+		outPin {
+			connection_15
+		}
+	}
+	simpleIdentifier counter at (471, 315) {
+		label at (0, 9)
+		inPin connection_10
+		outPin {
+			connection_11
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_19 {
+				bendpoints (0, 60)
+			}
+		}
+	}
+	subtraction at (381, 306) size (2, 4) {
+		inPin connection_11 {
+			bendpoints (60, 0), (60, 60), (-240, 60), (-240, -10)
+		}
+		inPin connection_12
+		outPin {
+			connection_10
+		}
+	}
+	literal Numeric "1" at (301, 333) size (49, 0) {
+		outPin {
+			connection_12
+		}
+	}
+}

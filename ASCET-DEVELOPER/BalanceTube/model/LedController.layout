@@ -1,0 +1,15 @@
+Component   model.LedController size ( 14 , 8 ) {
+	labelPosition ( 0 , 9 )
+	methodLayout periodicTrigger {
+		pin periodicTrigger ( Top , 0 )
+	}
+	memberLayout gameState {
+		setPinPosition ( Left , 0 )
+	}
+	memberLayout gameTime {
+		setPinPosition ( Left , 1 )
+	}
+	memberLayout ledRing {
+		getPinPosition ( Right , 0 )
+	}
+}

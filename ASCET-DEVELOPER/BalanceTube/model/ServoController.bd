@@ -1,0 +1,407 @@
+classType model.ServoController
+blockdiagramSpecification Main {
+	methodBody autoMode {
+		outPin active {
+			connection_22, connection_35, connection_54, connection_70, connection_84
+		}
+	}
+	container Derivative at (141, 381) size (8, 4) {
+		label at (0, 1)
+		containerOutPin D at (right, 1) {
+			connection_92
+		}
+		containerPinIdentifier D at (411, 273) size (6, 1) {
+			inPin connection_95
+		}
+		division at (351, 266) {
+			inPin connection_90
+			inPin connection_91 {
+				bendpoints (20, 0), (20, -40)
+			}
+			outPin {
+				connection_95
+			}
+		}
+		simpleIdentifier kd at (201, 295) {
+			label at (0, -1)
+			outPin {
+				connection_89
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		simpleIdentifier lastValue at (101, 285) {
+			label at (0, -1)
+			inPin outPin {
+				connection_96
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		simpleIdentifier error at (141, 385) {
+			label at (0, -1)
+			inPin outPin {
+				connection_85
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		simpleIdentifier lastValue at (261, 385) {
+			label at (0, -1)
+			inPin connection_85
+			outPin sequenceCall {
+				inPin connection_84
+			}
+		}
+		multiplication at (291, 256) {
+			inPin connection_88
+			inPin connection_89 {
+				bendpoints (20, 0), (20, -20)
+			}
+			outPin {
+				connection_90
+			}
+		}
+		simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at (271, 325) {
+			label at (0, -1)
+			inPin outPin {
+				connection_91
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		subtraction at (191, 246) {
+			inPin connection_97
+			inPin connection_96 {
+				bendpoints (40, 0)
+			}
+			outPin {
+				connection_88
+			}
+		}
+		simpleIdentifier error at (101, 245) {
+			label at (0, -1)
+			inPin outPin {
+				connection_97
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+	}
+	container Proportional at (141, 251) size (8, 4) {
+		label at (0, 1)
+		containerOutPin P at (right, 1) {
+			connection_79
+		}
+		simpleIdentifier kp at (51, 75) {
+			label at (0, -1)
+			outPin {
+				connection_24
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		containerPinIdentifier P at (191, 83) size (6, 1) {
+			inPin connection_78
+		}
+		multiplication at (131, 76) {
+			inPin connection_24
+			inPin connection_41 {
+				bendpoints (20, 0), (20, -30)
+			}
+			outPin {
+				connection_78
+			}
+		}
+		simpleIdentifier error at (41, 125) {
+			label at (0, -1)
+			inPin outPin {
+				connection_41
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		freeComment at (51, 41) {
+			"Proportional Control Part"
+		}
+	}
+	container Integrator at (141, 321) size (8, 4) {
+		label at (0, 1)
+		containerOutPin I at (right, 1) {
+			connection_80
+		}
+		literal Numeric "0.1" at (141, 193) size (49, 0) {
+			label at (0, 4)
+			outPin {
+				connection_16
+			}
+		}
+		greater at (211, 166) {
+			inPin connection_13
+			inPin connection_16 {
+				bendpoints (10, 0), (10, -10)
+			}
+			outPin {
+				connection_15
+			}
+		}
+		simpleIdentifier servoPosition at (91, 165) {
+			label at (0, -1)
+			inPin outPin {
+				connection_13
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		simpleIdentifier ki at (101, 285) {
+			label at (0, -1)
+			outPin {
+				connection_72
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		simpleIdentifier doIntegrate at (341, 135) {
+			label at (0, -1)
+			inPin connection_55
+			outPin sequenceCall {
+				inPin connection_54
+			}
+		}
+		if at (351, 251) {
+			inPin connection_36
+			ifControlFlowOutPin {
+				connection_31
+			}
+			sequenceCall {
+				inPin connection_35
+			}
+		}
+		simpleIdentifier integral at (431, 315) {
+			label at (10, -1)
+			inPin connection_32
+			outPin {
+				connection_76, connection_33
+			}
+			sequenceCall at (0, -24) {
+				inPin connection_31 {
+					bendpoints (10, 0), (10, 40)
+				}
+			}
+		}
+		addition at (291, 306) {
+			inPin connection_30
+			inPin connection_33 {
+				bendpoints (60, 0), (60, 40), (-210, 40), (-210, 10)
+			}
+			outPin {
+				connection_32
+			}
+		}
+		simpleIdentifier doIntegrate at (271, 255) {
+			label at (-40, -1)
+			inPin outPin {
+				connection_36
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		simpleIdentifier error at (91, 325) {
+			label at (0, -1)
+			inPin outPin {
+				connection_73
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		and at (281, 126) {
+			inPin connection_14 {
+				bendpoints (20, 0), (20, 30)
+			}
+			inPin connection_15 {
+				bendpoints (20, 0), (20, -30)
+			}
+			outPin {
+				connection_55
+			}
+		}
+		literal Numeric "0.9" at (141, 113) size (49, 0) {
+			label at (0, 4)
+			outPin {
+				connection_52
+			}
+		}
+		multiplication at (191, 286) size (2, 5) {
+			inPin connection_72
+			inPin connection_73 {
+				bendpoints (20, 0), (20, -20)
+			}
+			inPin connection_75 {
+				bendpoints (40, 0), (40, -40)
+			}
+			outPin {
+				connection_30
+			}
+		}
+		less at (211, 86) {
+			inPin connection_53
+			inPin connection_52 {
+				bendpoints (10, 0), (10, -10)
+			}
+			outPin {
+				connection_14
+			}
+		}
+		simpleIdentifier servoPosition at (91, 85) {
+			label at (0, -1)
+			inPin outPin {
+				connection_53
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at (91, 365) {
+			label at (0, -1)
+			inPin outPin {
+				connection_75
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		freeComment at (91, 31) {
+			"Only integrate if servo is not\r\nin limit position (anti-windup)."
+		}
+		containerPinIdentifier I at (631, 313) size (6, 1) {
+			inPin connection_76
+		}
+	}
+	freeComment at (121, 121) {
+		"actual position"
+	}
+	subtraction at (301, 96) {
+		inPin connection_20
+		inPin connection_21 {
+			bendpoints (30, 0), (30, -30)
+		}
+		outPin {
+			connection_23
+		}
+	}
+	literal Numeric "0.5" at (131, 93) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_20
+		}
+	}
+	freeComment at (121, 61) {
+		"ball position setpoint\r\n(middle of tube)"
+	}
+	simpleIdentifier ballPosition at (131, 145) {
+		label at (0, -1)
+		inPin outPin {
+			connection_21
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	simpleIdentifier error at (361, 105) {
+		label at (0, -1)
+		inPin connection_23
+		outPin sequenceCall {
+			inPin connection_22
+		}
+	}
+	addition at (381, 266) size (2, 3) {
+		inPin connection_82 {
+			bendpoints (10, 0), (10, 30)
+		}
+		inPin connection_81
+		outPin {
+			connection_83
+		}
+	}
+	maximum at (541, 276) {
+		inPin connection_83
+		inPin connection_67 {
+			bendpoints (10, 0), (10, -20)
+		}
+		outPin {
+			connection_66
+		}
+	}
+	minimum at (591, 266) {
+		inPin connection_68 {
+			bendpoints (50, 0), (50, 20)
+		}
+		inPin connection_66
+		outPin {
+			connection_71
+		}
+	}
+	literal Numeric "1.0" at (471, 243) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_68
+		}
+	}
+	literal Numeric "0.0" at (471, 313) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_67
+		}
+	}
+	simpleIdentifier servoPosition at (661, 275) {
+		label at (0, -1)
+		inPin connection_71
+		outPin sequenceCall {
+			inPin connection_70
+		}
+	}
+	literal Numeric "0.5" at (311, 233) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_82
+		}
+	}
+	freeComment at (311, 201) {
+		"pre-control\r\n(start horizontally)"
+	}
+	addition at (281, 266) size (2, 5) {
+		inPin connection_79
+		inPin connection_80 {
+			bendpoints (10, 0), (10, -50)
+		}
+		inPin connection_92 {
+			bendpoints (20, 0), (20, -90)
+		}
+		outPin {
+			connection_81
+		}
+	}
+	freeComment at (471, 211) {
+		"Limit controller output."
+	}
+	freeComment at (141, 231) {
+		"PID Controller"
+	}
+	freeComment at (131, 171) {
+		"[0.0 .. 1.0]"
+	}
+	freeComment at (661, 301) {
+		"[0.0 .. 1.0]"
+	}
+}

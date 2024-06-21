@@ -1,0 +1,14 @@
+Component SystemLib.Memory.RSFlipFlop size ( 5 , 3 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , 1 )
+	methodLayout compute {
+		pin s ( Left , 0 )
+		pin r ( Left , 1 )
+	}
+	methodLayout q {
+		pin q ( Right , 0 )
+	}
+	methodLayout nq {
+		pin nq ( Right , 1 )
+	}
+}

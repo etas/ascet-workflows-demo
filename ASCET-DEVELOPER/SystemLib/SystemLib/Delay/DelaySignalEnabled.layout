@@ -1,0 +1,16 @@
+Component SystemLib.Delay.DelaySignalEnabled size ( 5 , 3 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -1 , -4 )
+
+	methodLayout compute {
+		pin signal ( Left , 1 )
+		pin enable ( Bottom , 0 )
+	}
+	methodLayout reset {
+		pin initValue ( Bottom , 2 )
+		pin initEnable ( Bottom , 4 )
+	}
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+}

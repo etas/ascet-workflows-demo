@@ -1,0 +1,66 @@
+classType SystemLib.CounterTimer.Counter
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_6
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_3
+		}
+	}
+	literal Numeric "0" at (101, 93) size (49, 0) {
+		outPin {
+			connection_4
+		}
+	}
+	simpleIdentifier counter at (291, 95) {
+		label at (0, -1)
+		inPin connection_4
+		outPin {
+			connection_8
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+	return at (421, 95) {
+		label at (0, 0)
+		inPin connection_8
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	literal Numeric "1" at (101, 203) size (49, 0) {
+		outPin {
+			connection_2
+		}
+	}
+	simpleIdentifier counter at (291, 215) {
+		label at (0, -1)
+		inPin connection_7 {
+			bendpoints (30, 0), (30, 0)
+		}
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_6
+		}
+	}
+	addition at (191, 206) {
+		inPin connection_2
+		inPin connection_5 {
+			bendpoints (80, 0), (80, 50), (-170, 50), (-170, 10)
+		}
+		outPin {
+			connection_7
+		}
+	}
+}

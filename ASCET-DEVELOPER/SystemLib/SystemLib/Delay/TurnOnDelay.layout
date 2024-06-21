@@ -1,0 +1,12 @@
+Component SystemLib.Delay.TurnOnDelay size ( 5 , 3 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , 0 )
+	methodLayout compute {
+		pin signal ( Left , 1 )
+		pin delayTime ( Top , 2 )
+	}
+
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+}

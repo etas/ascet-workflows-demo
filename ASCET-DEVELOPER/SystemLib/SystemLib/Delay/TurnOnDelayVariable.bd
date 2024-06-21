@@ -1,0 +1,155 @@
+classType SystemLib.Delay.TurnOnDelayVariable
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_2
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_3
+		}
+	}
+	ifElse at  (191, 31) {
+		inPin connection_7 ifControlFlowOutPin {
+			connection_21
+		}
+		elseControlFlowOutPin {
+			connection_23, connection_22
+		}
+		sequenceCall at (-30, -14) {
+			inPin connection_2
+		}
+	}
+	methodArgumentIdentifier compute.signal at (31, 35) {
+		label at (0, -1)
+		outPin {
+			connection_7
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier time at  (261, 65) {
+		label at (10, -1)
+		inPin outPin {
+			connection_4
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	less at  (401, 66) size (2, 5) {
+		inPin connection_4 inPin connection_5 outPin {
+			connection_6
+		}
+	}
+	ifElse at  (471, 81) {
+		inPin connection_6 ifControlFlowOutPin {
+			connection_19
+		}
+		elseControlFlowOutPin {
+			connection_20
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_21 {
+				bendpoints (230, 0)
+			}
+		}
+	}
+	methodArgumentIdentifier compute.delayTime at  (271, 105) {
+		label at (0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-20, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier time at  (631, 105) {
+		label at (10, -1)
+		inPin connection_11 {
+			bendpoints (60, 0), (60, 70), (-220, 70), 
+		(-220, -20)
+		}
+		outPin {
+			connection_9
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_19 {
+				bendpoints 
+			(120, 0)
+			}
+		}
+	}
+	addition at  (751, 106) size (2, 6) {
+		inPin connection_9 inPin connection_8 outPin {
+			connection_11
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (631, 155) {
+		label at (10, -1)
+		inPin outPin {
+			connection_8
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	literal Boolean "true" at  (511, 233) size (49, 0) {
+		outPin {
+			connection_13
+		}
+	}
+	simpleIdentifier outbit at  (631, 235) {
+		label at (10, -1)
+		inPin connection_13 outPin sequenceCall at (20, -24) {
+			inPin connection_20 {
+				bendpoints (0, 100)
+			}
+		}
+	}
+	literal Numeric "0.0" at  (271, 273) size (49, 0) {
+		outPin {
+			connection_17
+		}
+	}
+	simpleIdentifier time at  (391, 275) {
+		label at (10, -1)
+		inPin connection_17 outPin sequenceCall at (20, -24) {
+			inPin connection_23 {
+				bendpoints 
+			(0, 190)
+			}
+		}
+	}
+	literal Boolean "false" at  (271, 343) size (49, 0) {
+		outPin {
+			connection_15
+		}
+	}
+	simpleIdentifier outbit at  (391, 345) {
+		label at (10, -1)
+		inPin connection_15 outPin sequenceCall at (20, -24) {
+			inPin connection_22 {
+				bendpoints 
+			(0, 260)
+			}
+		}
+	}
+	simpleIdentifier outbit at  (31, 415) {
+		label at (10, -1)
+		inPin outPin {
+			connection_18
+		}
+		sequenceCall at (20, -24) {
+			inPin
+		}
+	}
+	return at  (341, 415) {
+		label at (0, 0)
+		inPin connection_18 sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+}

@@ -1,0 +1,10 @@
+Component SystemLib.Miscellaneous.EdgeFalling size ( 3 , 3 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -1 , 1 )
+	methodLayout compute {
+		pin signal ( Left , 1 )
+	}
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+}

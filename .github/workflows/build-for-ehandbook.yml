@@ -1,0 +1,41 @@
+name: Build EHANDBOOK Container
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+defaults:
+  run:
+    shell: cmd
+
+env:
+  EHANDBOOK_INSTALL_PATH: C:\ETAS\EHB-CB
+  PROJECT_CHECKOUT: checkout
+
+jobs:
+  ehb:
+    name: EHANDBOOK Container Build
+    runs-on: ascet
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        path: ${{ env.PROJECT_CHECKOUT }}
+    - name: Configure
+      run: |
+        mkdir %RUNNER_TEMP%\artifacts
+        echo ARTIFACTS_DIR=%RUNNER_TEMP%\artifacts>> %GITHUB_ENV%
+      working-directory: ${{ env.PROJECT_CHECKOUT }}
+    - name: Generate EHANDBOOK Container
+      run: > 
+        ${{ env.EHANDBOOK_INSTALL_PATH }}\eHandbookCB.exe 
+        -i ${{ env.PROJECT_CHECKOUT }}\ASCET-DEVELOPER\BalanceTube\BalanceTube.app 
+        -o "${{ env.ARTIFACTS_DIR }}\ehb"
+        -n BalanceTube
+        -labelconfig ${{ env.PROJECT_CHECKOUT }}\.github\workflows\ebh-config.json
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: EHANDBOOK
+        path: ${{ env.ARTIFACTS_DIR }}\ehb
+        overwrite: true

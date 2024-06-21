@@ -1,0 +1,62 @@
+classType SystemLib.Miscellaneous.DeltaOneStep
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_2, connection_4
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier compute.val at (61, 85) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_7, connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier buffer at  (431, 95) {
+		label at (0, -1)
+		inPin connection_3
+		outPin {
+			connection_8
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_2
+		}
+	}
+	return at  (571, 95) {
+		label at (0, 0)
+		inPin connection_8
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	subtraction at  (331, 86) {
+		inPin connection_7 inPin connection_6 {
+			bendpoints 
+		(50, 0)
+		}
+		outPin {
+			connection_3
+		}
+	}
+	simpleIdentifier oldValue at  (231, 145) {
+		label at (0, -1)
+		inPin connection_5 {
+			bendpoints (80, 0), 
+		(80, 60)
+		}
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_4
+		}
+	}
+}

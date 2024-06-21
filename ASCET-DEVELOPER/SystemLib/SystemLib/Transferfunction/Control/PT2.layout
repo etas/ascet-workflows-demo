@@ -1,0 +1,16 @@
+Component SystemLib.Transferfunction.Control.PT2 size ( 8 , 6 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( 1 , -6 )
+	methodLayout compute {
+		pin val ( Left , 2 )
+		pin d ( Top , 3 )
+		pin K ( Top , 1 )
+		pin T ( Top , 5 )
+	}
+	methodLayout reset {
+		pin initValue ( Bottom , 3 )
+	}
+	methodLayout value {
+		pin value ( Right , 2 )
+	}
+}

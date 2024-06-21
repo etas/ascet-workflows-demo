@@ -1,0 +1,117 @@
+classType SystemLib.Transferfunction.Lowpass.LowpassT
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_8
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_13
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (41, 75) {
+		label at (0, -1)
+		outPin {
+			connection_14
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (211, 75) {
+		label at (0, -1)
+		inPin connection_14 {
+			bendpoints (10, 0), (10, 0)
+		}
+		outPin {
+			connection_12
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_13
+		}
+	}
+	return at  (361, 75) {
+		label at (0, 0)
+		inPin connection_12 {
+			bendpoints (100, 0), (100, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at (31, 215) {
+		label at (10, -1)
+		inPin outPin {
+			connection_2
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	division at  (171, 216) size (2, 4) {
+		inPin connection_2 inPin connection_4 outPin {
+			connection_3
+		}
+	}
+	methodArgumentIdentifier compute.T at (41, 245) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at (401, 265) {
+		label at (0, -1)
+		inPin connection_9 outPin {
+			connection_11, connection_10
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_8
+		}
+	}
+	multiplication at  (251, 226) size (2, 8) {
+		inPin connection_3 inPin connection_7 outPin {
+			connection_6
+		}
+	}
+	addition at  (321, 256) {
+		inPin connection_6 inPin connection_11 {
+			bendpoints (40, 0), (40, 80), 
+		(-140, 80), (-140, 10)
+		}
+		outPin {
+			connection_9
+		}
+	}
+	methodArgumentIdentifier compute.val at (41, 285) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	subtraction at (191, 286) {
+		inPin connection_5 {
+			bendpoints (10, 0)
+		}
+		inPin connection_10 {
+			bendpoints (40, 0), (40, 80), 
+		(-300, 80), (-300, 40)
+		}
+		outPin {
+			connection_7
+		}
+	}
+}

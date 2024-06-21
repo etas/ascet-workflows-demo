@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--
+MEMORY CONFIGURATION IN A NUTSHELL
+==================================
+
+This XML file will be read by ASCET code generation at startup to get all definitions of
+all available memory classes for a specific target. This information is then used
+in ASCET-GUI in "Implementation Editor" for "Memory Location" selection.
+So if some changes are made here (for example: memory class defaults are changed
+or a new memory class is added or removed) ASCET must be restarted.
+If you just change values of such attributes like:
+   prePragma, postPragma, typeDef, typeDefRef, funcSignatureDef,
+   constQualifier, volatileQualifier, storageQualifier
+there is no need to restart ASCET. These attributes are only evaluated by ECCO
+(micro-controller specific code generator) and ECCO reads this file each time
+code generation for a specific target is started. So changes will be effective
+at once.
+
+Configuration of Memory Class Defaults
+======================================
+ASCET separates between 4 categories of memory classes:
+  Code              - Memory classes assigned to this category can be used in ASCET
+                      to locate methods and processes.
+
+  Variable          - Memory classes assigned to this category can be used in ASCET
+                      to locate variable parts of model (Variables).
+
+  Characteristic    - Memory classes assigned to this category can be used in ASCET
+                      to locate parameters.
+
+  ConstData         - Memory Classes assigned to this category can be used in ASCET
+                      to locate constant parts of component data structures.
+
+There must be a default memory class for each of this categories. So if for example
+in Impl. Editor a parameter X has a 'Default' selection for "Memory Location",
+the default memory class of category 'Characteristic' will be used during the code generation.
+Defaults can be configured in this file in <MemClassCategories> block.
+
+E.g.:
+  <MemClassCategories>
+    <Code             defaultMemClass="ICODE"/>
+    <Variable         defaultMemClass="IRAM"/>
+    <Characteristic   defaultMemClass="IFLASH"/>
+    <ConstData        defaultMemClass="IFLASH"/>
+  </MemClassCategories>
+
+
+Description of Memory Class Attributes
+======================================
+Memory classes can be introduced in <MemClasses> XML-section. Definition of a
+memory class looks usually like that:
+
+  <MemClass>
+    <name>MyRAM</name>
+    <guiSelectable>true</guiSelectable>
+    <prePragma>#pragma use_section MyRAM %gen_name%</prePragma>
+    <postPragma/>
+    <typeDef>%const% %volatile% %type%</typeDef>
+    <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+    <constQualifier>false</constQualifier>
+    <volatileQualifier>false</volatileQualifier>
+    <storageQualifier>__far</storageQualifier>
+    <description>some description text</description>
+    <category>Variable</category>
+    <category>Characteristic</category>
+  </MemClass>
+
+Attributes:
+===========
+  <name>
+    Here a symbolic name (string) of memory class must be specified.
+    This name must be unique and will be shown in ASCET Impl. Editor.
+    This is a mandatory attribute.
+    Type: [String]
+
+  <category>
+    With this attribute a memory class can be associated to one of the four
+    categories ['Code', 'Variable', 'Characteristic', 'ConstData'].
+    It is possible to assigned a memory class to different categories
+    at the same time. In example above memory class 'MyRam' will be available
+    for variables and parameters.
+    There is also an reserved category 'Internal', which is used
+    for internal memory classes, which shall not be available in ASCET model.
+    For example memory class VARTOM, SERAP_WORK etc. are of such kind.
+    At least one occurrence of this attribute is mandatory.
+    Type: [Enum: 'Code', 'Variable', 'Characteristic', 'ConstData', 'Internal']
+
+  <guiSelectable>
+    This is a boolean (true/false) attribute. Default value is "true".
+    If this attribute is enabled, memory class will be visible and selectable
+    in ASCET's GUI. If it's disabled, memory class is only available
+    for code generation but in the GUI it is not possible to select it.
+    This is useful for external ASCET models, which have already a defined
+    set of used memory classes.
+    This is an optional attribute.
+    Type: [Boolean]
+
+  <prePragma>
+    Contains a template for a pragma directive to be put in the line before a
+    definition of a variable.
+    Here macro %gen_name% and %model_name% can be used to reference the variable name,
+    for which current pragma line must be generated.
+    This is an optional attribute. If not defined, no pre-line pragmas will be generated.
+    Type: [String]
+
+  <postPragma>
+    Contains a template for a pragma directive to be put in the line after a
+    definition of a variable.
+    Here macro %gen_name% and %model_name% can be used to reference the variable name,
+    for which current pragma line must be generated.
+    This is an optional attribute. If not defined, no pre-line pragmas will be generated.
+    Type: [String]
+
+  <typeDef>
+    Contains template for a type definition for all non-reference types.
+    The default value for this template is: '%const% %volatile% %type%'.
+    where macros like: %type%, %const%,... will be expanded to appropriate
+    values during the code generation. See chapter "Expansion of Template Macros"
+    for more information.
+    Type: [String]
+
+  <typeDefRef>
+    Contains template for a type definition for all reference types.
+    The default value for this template is:
+    '%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%'.
+    But it's strongly recommended to adapt this template to fit the need of
+    your target platform (compiler specific)
+    Macros like: %type%, %const%,... will be expanded to appropriate
+    values during the code generation. See chapter "Expansion of Template Macros"
+    for more information.
+    Type: [String]
+
+  <funcSignatureDef>
+    Contains template for definition of function signatures.
+    The default value for this template is: '%return_type% %gen_name% (%argv%)'
+    where macros like: %return_type%, %gen_name%, %signature% will be expanded to appropriate
+    values during the code generation. See chapter "Expansion of Template Macros"
+    for more information.
+    Type: [String]
+
+  <constQualifier>
+    If it's true, variables assigned to this memory class will be declared with
+    'const' keyword in generated code (see macro %const%).
+    Type: [Boolean]
+
+  <volatileQualifier>
+    If it's true, variables assigned to this memory class will be declared with
+    'volatile' keyword in generated code (see macro %volatile%).
+    Type: [Boolean]
+
+  <storageQualifier>
+    Value of this attribute will be used as substitution of %storage_ref% macro in
+    template of <typeDefRef>. With this attribute it is possible to generate compiler
+    specific type qualifiers like 'far', 'near', '__rptr' etc. for reference types.
+    Type: [String]
+
+  <description>
+    This is just a field to put comments for a memory class. In the future ASCET versions
+    this comment will be shown in the GUI.
+    This is an optional attribute and has no functional semantic.
+    Type: [String]
+
+
+Expansion of Template Macros
+============================
+During the code generation templates given in:
+   <prePragma>
+   <postPragma>
+   <typeDef>
+   <typeDefRef>
+   <funcSignatureDef>
+will be used to generated pre-/post pragmas for variables and functions
+(<prePragma>, <postPragma>), type definitions for variable of
+non-reference (<typeDef>) and reference (<typeDefRef>) types and
+function signatures (<funcSignatureDef>). To customize this expansion
+process template macros can be used to generate e.g.: variable name
+within a pragma statement or to extend type definitions with
+type qualifiers.
+
+Example:
+========
+Let's assume we have a reference XREF to an parameter array modeled in ASCET.
+This array is implemented with 'sint32' and shall be located in
+a banked FLASH (PAGED_ROM) on a HCS12X processor. So in generated C-Code
+a type definition for XREF must be generated like that:
+
+  const sint32 *__pptr XREF;
+
+All references are located in ASCET automatically to REFRAM.
+The templates for pragmas and type definitions for this variable (XREF)
+will be used from memory class REFRAM. So we have to configure it like that:
+  <MemClass>
+    <name>REFRAM</name>
+    <prePragma>#pragma DATA_SEG REFRAM</prePragma>
+    <postPragma>#pragma DATA_SEG DEFAULT</postPragma>
+    <typeDef>%const% %volatile% %type%</typeDef>
+    <typeDefRef>%const_ref% %volatile_ref% %type% *%storage_ref% %const% %volatile%</typeDefRef>
+    <constQualifier>false</constQualifier>
+    <volatileQualifier>false</volatileQualifier>
+    <storageQualifier/>
+    <description>all variables generated as references are mapped into this memory class</description>
+    <category>Internal</category>
+  </MemClass>
+
+In ASCET's Impl. Editor you have to select the memory class to
+which our reference (XREF) shall point. This is memory class is 'PAGED_ROM'.
+The storage qualifier of this memory class must be defined as: '__pptr'
+And const qualifier must be 'true'.
+So definition for this memory class could be:
+
+  <MemClass>
+    <name>PAGED_ROM</name>
+    <prePragma>#pragma CONST_SEG __PPAGE_SEG PAGED_ROM</prePragma>
+    <postPragma>#pragma CONST_SEG DEFAULT</postPragma>
+    <typeDef>%const% %volatile% %type%</typeDef>
+    <typeDefRef>%const_ref% %volatile_ref% %type% *%storage_ref% %const% %volatile%</typeDefRef>
+    <constQualifier>true</constQualifier>
+    <volatileQualifier>false</volatileQualifier>
+    <storageQualifier>__pptr</storageQualifier>
+    <description/>
+    <category>Characteristic</category>
+    <category>ConstData</category>
+  </MemClass>
+
+During the code generation for XREF ASCET will use <typeDefRef> from REFRAM:
+
+  %const_ref% %volatile_ref% %type% *%storage_ref% %const% %volatile%
+
+expand all macros with following rules:
+Values of %const_ref% %volatile_ref% %storage_ref% will be taken
+from referenced memory class (PAGED_ROM) so we will get:
+
+  const %type% *__pptr %const% %volatile%
+
+Values of macros %const% %volatile% will be taken from REFRAM,
+since XREF is mapped to this memory class. So we will get:
+
+  const %type% *__pptr
+
+And finally the %type% macro will be expanded to current implementation
+type 'sint32'. And resulting type we get is then:
+
+  const sint32 *__pptr
+
+
+
+Description of Template Macros
+==============================
+
+%model_name%
+  valid for: prePragma, postPragma
+  Will be expanded to the model name of variable or function, for which
+  current pragma must be generated.
+
+%gen_name%
+  valid for: prePragma, postPragma, funcSignatureDef
+  Will be expanded to the generation name of variable or
+  function, for which current pragma must be generated.
+
+%type%
+  valid for: typeDef, typeDefRef
+  Will be expanded to the name of the generated C type of currently
+  processed variable. e.g. it has values like:
+  'uint16', 'real32', 'struct MYCLASS_IMPL'.
+
+%const%
+  valid for: typeDef, typeDefRef
+  Will be expanded to 'const' or '' (empty string) depending of
+  the value of the attribute constQualifier of current memory class.
+
+%volatile%
+  valid for: typeDef, typeDefRef
+  Will be expanded to 'volatile' or '' (empty string) depending
+  of the value of the attribute volatileQualifier of current memory class.
+
+%const_ref%
+  valid for: typeDefRef
+  Will be expanded to 'const' or '' (empty string) depending of
+  the value of the attribute constQualifier of the memory class,
+  to which the current reference will point.
+
+%volatile_ref%
+  valid for: typeDefRef
+  Will be expanded to 'volatile' or '' (empty string) depending
+  of the value of the attribute constQualifier of the memory class,
+  to which the current reference will point.
+
+%storage_ref%
+  valid for: typeDefRef
+  Will be expanded to the value of  the attribute storageQualifier
+  of the memory class, to which the current reference will point.
+
+%return_type%
+  valid for: funcSignatureDef
+  Will be expanded to the type definition of return value associated
+  to a function (method/process/task). As special case it will be
+  expanded to 'void', a function has no return value.
+
+%argv%
+  valid for: funcSignatureDef
+  Will be expanded to the definition of all arguments associated to
+  a function (method/process/task). As special case it will be
+  expanded to 'void', a function has no arguments.
+
+
+Stack Variables
+===============
+All stack variables (method arguments, local variables, return values)
+are mapped by default to a pre-defined pseudo memory class 'STACK'.
+To customize generation of types of such elements attributes
+<typeDef> and <typeDefRef> of this memory class must be adapted.
+-->
+<MemClassConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="6.1.1.0" xsi:noNamespaceSchemaLocation="../../Schemas/memorySections.xsd">
+    <MemClassCategories>
+        <Code defaultMemClass="CODE"/>
+        <Variable defaultMemClass="RAM"/>
+        <Characteristic defaultMemClass="CAL_MEM"/>
+        <ConstData defaultMemClass="ROM"/>
+        <DistSearchResult defaultMemClass="RAM"/>
+    </MemClassCategories>
+    <MemClasses>
+        <!-- VARIABLES -->
+        <MemClass>
+            <name>RAM</name>
+            <prePragma/>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>false</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <storageQualifier/>
+            <description>internal ram</description>
+            <category>Variable</category>
+            <category>DistSearchResult</category>
+        </MemClass>
+        <MemClass>
+            <name>REFRAM</name>
+            <prePragma/>
+            <postPragma/>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>false</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <storageQualifier/>
+            <description>all variables generated as references are mapped into this memory class</description>
+            <category>Internal</category>
+        </MemClass>
+        <!-- PARAMETERS AND CONST DATA -->
+        <MemClass>
+            <name>CAL_MEM</name>
+            <prePragma>__attribute__((section(".ascet_calibration_rom")))</prePragma>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>true</volatileQualifier>
+            <storageQualifier/>
+            <description/>
+            <category>Characteristic</category>
+        </MemClass>
+        <MemClass>
+            <name>ROM</name>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <storageQualifier/>
+            <description/>
+            <category>ConstData</category>
+        </MemClass>
+        <!-- CODE -->
+        <MemClass>
+            <name>CODE</name>
+            <prePragma/>
+            <postPragma/>
+            <funcSignatureDef>%return_type% %gen_name% (%argv%)</funcSignatureDef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <description>memory section for internal code</description>
+            <category>Code</category>
+        </MemClass>
+        <MemClass>
+            <name>ICODE</name>
+            <prePragma>#define START_SECTION_ICODE</prePragma>
+            <postPragma>#define STOP_SECTION_ICODE</postPragma>
+            <funcSignatureDef>%return_type% %gen_name% (%argv%)</funcSignatureDef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <description>memory section for internal code</description>
+            <category>Code</category>
+        </MemClass>
+        <!-- INTERNALS -->
+        <MemClass>
+            <name>SERAP_REF</name>
+            <prePragma/>
+            <postPragma/>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>true</volatileQualifier>
+            <storageQualifier/>
+            <description>memory section for reference page (SERAP)</description>
+            <category>Internal</category>
+        </MemClass>
+        <MemClass>
+            <name>SERAP_WORK</name>
+            <prePragma/>
+            <postPragma/>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>true</volatileQualifier>
+            <storageQualifier/>
+            <description>memory section for working page (SERAP)</description>
+            <category>Internal</category>
+        </MemClass>
+        <MemClass>
+            <name>VATROM</name>
+            <prePragma/>
+            <postPragma/>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <storageQualifier/>
+            <description>memory section used to locate virtual address tables. It should not be mapped to physical memory</description>
+            <category>Internal</category>
+        </MemClass>
+        <MemClass>
+            <name>VIRT_PARAM</name>
+            <prePragma/>
+            <postPragma/>
+            <typeDef>%const% %volatile% %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %const% %volatile% %storage_ref%</typeDefRef>
+            <constQualifier>true</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <storageQualifier/>
+            <description>virtual parameters are located to this mem class. It should not be assigned to physical memory</description>
+            <category>Internal</category>
+        </MemClass>
+        <MemClass>
+            <name>FUNC_ARG_IN</name>
+            <typeDef>const %type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %storage_ref%</typeDefRef>
+            <constQualifier>false</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <category>Internal</category>
+            <description>FUNC_ARG_IN is used to generate type definitions of IN-arguments of C-functions</description>
+        </MemClass>
+        <MemClass>
+            <name>FUNC_ARG_INOUT</name>
+            <typeDef>%type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %storage_ref%</typeDefRef>
+            <constQualifier>false</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <category>Internal</category>
+            <description>FUNC_ARG_INOUT is used to generate type definitions of INOUT-arguments of C-functions</description>
+        </MemClass>
+        <MemClass>
+            <name>FUNC_ARG_OUT</name>
+            <typeDef>%type%</typeDef>
+            <typeDefRef>%volatile_ref% %type% * %storage_ref%</typeDefRef>
+            <constQualifier>false</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <category>Internal</category>
+            <description>FUNC_ARG_OUT is used to generate type definitions of OUT-arguments of C-functions</description>
+        </MemClass>
+        <MemClass>
+            <name>STACK</name>
+            <typeDef>%type%</typeDef>
+            <typeDefRef>%const_ref% %volatile_ref% %type% * %storage_ref%</typeDefRef>
+            <constQualifier>false</constQualifier>
+            <volatileQualifier>false</volatileQualifier>
+            <category>Internal</category>
+        </MemClass>
+    </MemClasses>
+</MemClassConfig>

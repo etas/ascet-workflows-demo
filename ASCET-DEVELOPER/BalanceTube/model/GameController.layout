@@ -1,0 +1,18 @@
+Component               model.GameController size ( 14 , 8 ) {
+	labelPosition ( 0 , 9 )
+	methodLayout gameState {
+		pin gameState ( Right , 1 )
+	}
+	methodLayout periodicTrigger {
+		pin periodicTrigger ( Top , 0 )
+	}
+	memberLayout ballPosition {
+		setPinPosition ( Left , 0 )
+	}
+	memberLayout startGame {
+		setPinPosition ( Left , 1 )
+	}
+	memberLayout score {
+		getPinPosition ( Right , 0 )
+	}
+}

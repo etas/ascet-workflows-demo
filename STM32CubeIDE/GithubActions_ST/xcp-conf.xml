@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!--
+
+This XML file accompanies step 1 of the tutorial contained in the XCP Starter Kit user guide. It provides
+enough configuration to allow the XCP slave driver to establish basic communication with INCA.
+
+Copyright ETAS GmbH, Stuttgart.
+
+This file is covered by the licence and disclaimer document which is installed with
+the XCP ECU software package.
+
+$Id: 1_basic_comms.xml 18707 2010-05-26 08:41:57Z olcritch $
+-->
+
+<!-- This is the XML document containing the configuration. The noNamespaceSchemaLocation attribute is not necessary,
+but allows an XML editor to perform schema validation for the user. -->
+<XCP_CONFIG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\ConfigTool\xcp_conf.xsd">
+    
+    <XCP_SESSION>
+        
+        <!-- General configuration for this XCP session -->
+        
+        <XCP_ENABLE>yes</XCP_ENABLE>
+        <XCP_TIMESTAMP_SIZE>4</XCP_TIMESTAMP_SIZE>                  <!-- In bytes -->
+        <XCP_EVENTPENDING_TIMEOUT>100</XCP_EVENTPENDING_TIMEOUT>    <!-- In units of 1ms -->
+        <XCP_ECUID>XCP slave device1</XCP_ECUID>
+        <XCP_TIMEOUT_T1>2000</XCP_TIMEOUT_T1>                       <!--In units of 1ms-->
+        <XCP_TIMEOUT_T2>2000</XCP_TIMEOUT_T2>                       <!--In units of 1ms-->
+        <XCP_TIMEOUT_T3>2000</XCP_TIMEOUT_T3>                       <!--In units of 1ms-->
+        <XCP_TIMEOUT_T4>2000</XCP_TIMEOUT_T4>                       <!--In units of 1ms-->
+        <XCP_TIMEOUT_T5>2000</XCP_TIMEOUT_T5>                       <!--In units of 1ms-->
+        <XCP_TIMEOUT_T6>0005</XCP_TIMEOUT_T6>                       <!--In units of 1ms-->
+        <XCP_TIMEOUT_T7>0005</XCP_TIMEOUT_T7>                       <!--In units of 1ms-->
+        
+        <!-- CAN configuration for this session -->
+        <XCP_SESSION_CAN>
+            <XCPCAN_BROADCAST_MSGID>0x100</XCPCAN_BROADCAST_MSGID>
+            <XCPCAN_RX_MSGID>0x200</XCPCAN_RX_MSGID>
+            <XCPCAN_TX_MSGID>0x300</XCPCAN_TX_MSGID>
+            <XCPCAN_TX_MSGOBJID>1</XCPCAN_TX_MSGOBJID>
+        </XCP_SESSION_CAN>
+        
+		<!-- Static DAQ lists for this session -->
+        <XCP_DAQLISTS>
+            <XCP_STATIC_DAQLISTS>
+                <XCP_DAQ>
+                    <XCP_DAQNAME>DAQ0</XCP_DAQNAME>
+                    <XCP_DAQDIR>DAQ</XCP_DAQDIR>
+                    <XCP_MAX_ODT>5</XCP_MAX_ODT>
+                    <XCP_MAX_ODT_ENTRIES>7</XCP_MAX_ODT_ENTRIES>
+                    <XCP_DAQ_DEFAULT_EVENT>0</XCP_DAQ_DEFAULT_EVENT><!-- This DAQ list is fixed to the EVENT "SampleRate_2ms" -->
+                    <XCP_DAQ_EVENT_FIXED>yes</XCP_DAQ_EVENT_FIXED>
+                    <XCP_DAQ_CANRESUME>no</XCP_DAQ_CANRESUME>
+                    <XCP_DAQ_CAN>
+                        <XCPCAN_DAQ_MSGID>0x301</XCPCAN_DAQ_MSGID>
+                    </XCP_DAQ_CAN>
+                </XCP_DAQ>										  
+			</XCP_STATIC_DAQLISTS>
+        </XCP_DAQLISTS>		  
+		<!-- Segment and page configuration -->
+        <XCP_SEGMENT_LIST>
+            <XCP_SEGMENT>
+                <XCP_SEGMENT_NUM>0</XCP_SEGMENT_NUM>                <!-- The code segment -->
+                <XCP_PAGE_LIST>
+                    <XCP_PAGE>
+                        <XCP_PAGE_NUM>0</XCP_PAGE_NUM>
+                        <XCP_INIT_SEGMENT>0</XCP_INIT_SEGMENT>
+                    </XCP_PAGE>
+                </XCP_PAGE_LIST>
+            </XCP_SEGMENT>
+            <XCP_SEGMENT>
+                <XCP_SEGMENT_NUM>1</XCP_SEGMENT_NUM>                <!-- The calibration data segment -->
+                <XCP_PAGE_LIST>
+                    <XCP_PAGE>
+                        <XCP_PAGE_NUM>0</XCP_PAGE_NUM>
+                        <XCP_INIT_SEGMENT>1</XCP_INIT_SEGMENT>
+                    </XCP_PAGE>
+                </XCP_PAGE_LIST>
+            </XCP_SEGMENT>
+        </XCP_SEGMENT_LIST>
+									   
+    </XCP_SESSION>
+    
+    <!-- Global configuration which applies to all sessions -->
+    <XCP_GLOBALS>
+        <XCP_POLL_INTERVAL>10</XCP_POLL_INTERVAL>                   <!--In units of 1ms-->
+        <XCP_BLOCK_SEPARATION_TIME>10</XCP_BLOCK_SEPARATION_TIME>   <!--In units of 1ms-->
+        <XCP_TIMESTAMP_UNIT>1ms</XCP_TIMESTAMP_UNIT>
+        <XCP_TIMESTAMP_TICKS_PER_UNIT>1</XCP_TIMESTAMP_TICKS_PER_UNIT>
+        <XCP_ATOMIC_DATA_SAMPLING>PER_ODT</XCP_ATOMIC_DATA_SAMPLING>
+        <XCP_MAX_CHECKSUM_BLOCKSIZE>0xffff</XCP_MAX_CHECKSUM_BLOCKSIZE>
+        <XCP_ADDR_EXTENSION_TYPE>ADDRESS_EXTENSION_FREE</XCP_ADDR_EXTENSION_TYPE>
+        <XCP_TARGET_BYTE_ORDER>MSB_LAST</XCP_TARGET_BYTE_ORDER>
+
+        <XCP_ENABLE_SEEDNKEY>no</XCP_ENABLE_SEEDNKEY>
+        <XCP_ENABLE_PGM>no</XCP_ENABLE_PGM>
+        <XCP_ENABLE_CALPAG>yes</XCP_ENABLE_CALPAG>
+        <XCP_ENABLE_RESUME>no</XCP_ENABLE_RESUME>
+        <XCP_ENABLE_OPTIONAL_CMDS>no</XCP_ENABLE_OPTIONAL_CMDS>    <!-- INTECRIO requires some XCP commands which are, strictly speaking, optional -->
+        <XCP_ENABLE_PAGE_FREEZING>no</XCP_ENABLE_PAGE_FREEZING>
+        <XCP_ENABLE_STIM>no</XCP_ENABLE_STIM>
+
+        <XCP_ENVIRONMENT>XCP_ENV_NOT_ETAS</XCP_ENVIRONMENT>            <!-- Assume that the ECU application is built with ASCET -->
+        
+        <!-- Global CAN configuration which applies to all sessions -->
+        <XCP_GLOBALS_CAN>
+            <XCPCAN_ALLOW_EXTENDED_MSG_IDS>yes</XCPCAN_ALLOW_EXTENDED_MSG_IDS>
+            <XCPCAN_BAUDRATE>500000</XCPCAN_BAUDRATE>               <!-- In Hz -->
+            <XCPCAN_SAMPLE_POINT>75</XCPCAN_SAMPLE_POINT>
+            <XCPCAN_SAMPLE_RATE>SINGLE</XCPCAN_SAMPLE_RATE>
+            <XCPCAN_BTL_CYCLES>0</XCPCAN_BTL_CYCLES>
+            <XCPCAN_SJW>2</XCPCAN_SJW>
+            <XCPCAN_SYNC_EDGE>SINGLE</XCPCAN_SYNC_EDGE>
+        </XCP_GLOBALS_CAN>
+        
+    </XCP_GLOBALS>
+    
+	<!-- Global events -->
+    <XCP_EVENT_LIST>
+        <XCP_EVENT>
+            <XCP_EVENTCHANNEL_NAME>SampleRate_2ms</XCP_EVENTCHANNEL_NAME>
+            <XCP_EVENTCHANNEL_SHORTNAME>2ms</XCP_EVENTCHANNEL_SHORTNAME>
+            <XCP_EVENTCHANNEL_NUM>0</XCP_EVENTCHANNEL_NUM>
+            <XCP_EVENT_TIMEUNIT>1ms</XCP_EVENT_TIMEUNIT>
+            <XCP_EVENT_TIMECYCLE>2</XCP_EVENT_TIMECYCLE>
+        </XCP_EVENT>					  
+	</XCP_EVENT_LIST>				
+</XCP_CONFIG>

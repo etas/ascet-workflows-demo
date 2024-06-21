@@ -1,0 +1,106 @@
+classType SystemLib.Transferfunction.Lowpass.DigitalLowpass
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_6
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_11
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (41, 75) {
+		label at (0, -1)
+		outPin {
+			connection_12
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (191, 75) {
+		label at (10, -1)
+		inPin connection_12 {
+			bendpoints (10, 0), (10, 0)
+		}
+		outPin {
+			connection_10
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_11
+		}
+	}
+	return at  (341, 75) {
+		label at (0, 0)
+		inPin connection_10 {
+			bendpoints (100, 0), (100, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier compute.m at (41, 205) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_2
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (421, 225) {
+		label at (0, -1)
+		inPin connection_7 outPin {
+			connection_9, connection_8
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_6
+		}
+	}
+	multiplication at  (251, 206) {
+		inPin connection_2 inPin connection_5 {
+			bendpoints (20, 0)
+		}
+		outPin {
+			connection_4
+		}
+	}
+	addition at  (321, 216) {
+		inPin connection_4 inPin connection_9 {
+			bendpoints (180, 0), (180, 50), 
+		(-150, 50)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	methodArgumentIdentifier compute.val at (41, 265) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	subtraction at (191, 266) {
+		inPin connection_3 {
+			bendpoints (10, 0), (10, 0)
+		}
+		inPin connection_8 {
+			bendpoints (180, 0), (180, 130), 
+		(-310, 130), (-310, 60)
+		}
+		outPin {
+			connection_5
+		}
+	}
+}

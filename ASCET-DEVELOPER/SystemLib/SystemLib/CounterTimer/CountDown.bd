@@ -1,0 +1,122 @@
+classType SystemLib.CounterTimer.CountDown
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_2
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody begin {
+		outPin {
+			connection_3
+		}
+	}
+	methodArgumentIdentifier begin.startValue at (21, 75) {
+		label at (0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier counter at (171, 75) {
+		label at (0, -1)
+		inPin connection_4
+		outPin {
+			connection_5
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+	greater at (281, 76) size (2, 5) {
+		inPin connection_5
+		inPin connection_9
+		outPin {
+			connection_6
+		}
+	}
+	return at (381, 95) {
+		label at (0, 0)
+		inPin connection_6
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	literal Numeric "0" at (181, 113) size (49, 0) {
+		outPin {
+			connection_9
+		}
+	}
+	simpleIdentifier counter at (21, 185) {
+		label at (0, -1)
+		inPin outPin {
+			connection_7
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	equal at (171, 186) size (2, 4) {
+		inPin connection_7
+		inPin connection_8 {
+			bendpoints (90, 0)
+		}
+		outPin {
+			connection_10
+		}
+	}
+	not at (281, 191) {
+		inPin connection_10
+		outPin {
+			connection_11
+		}
+	}
+	if at (381, 191) {
+		inPin connection_11
+		ifControlFlowOutPin {
+			connection_16
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_2
+		}
+	}
+	literal Numeric "0" at (31, 213) size (49, 0) {
+		outPin {
+			connection_8
+		}
+	}
+	simpleIdentifier counter at (451, 275) {
+		label at (0, -1)
+		inPin connection_13 {
+			bendpoints (30, 0)
+		}
+		outPin {
+			connection_14
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_16 {
+				bendpoints (30, 0)
+			}
+		}
+	}
+	subtraction at (381, 266) {
+		inPin connection_14 {
+			bendpoints (70, 0), (70, 60), (-270, 60), (-270, -10)
+		}
+		inPin connection_15
+		outPin {
+			connection_13
+		}
+	}
+	literal Numeric "1" at (261, 283) size (49, 0) {
+		outPin {
+			connection_15
+		}
+	}
+}

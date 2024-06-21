@@ -1,0 +1,16 @@
+Component SystemLib.Transferfunction.Control.PID size ( 8 , 6 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( 1 , -6 )
+	methodLayout compute {
+		pin val ( Left , 2 )
+		pin K ( Top , 1 )
+		pin TV ( Top , 5 )
+		pin TN ( Top , 6 )
+	}
+	methodLayout reset {
+		pin initValue ( Bottom , 3 )
+	}
+	methodLayout value {
+		pin value ( Right , 2 )
+	}
+}
