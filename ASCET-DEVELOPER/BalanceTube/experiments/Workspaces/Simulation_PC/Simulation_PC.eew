@@ -1,0 +1,22 @@
+<?SCHEMA schemaVersion="1.0"?>
+<Workspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Program%20Files/Common%20Files/ETAS/Experiment%20Environment/3.8/Schemas/EE.Data.Workspace.xsd" xsi:type="ETAS.EE.Data.WorkspaceType">
+  <PluginData xsi:type="ETAS.EE.Data.PluginDataListType">
+    <Item xsi:type="ETAS.EE.Data.PluginDataType" id="ID1c5de1f4-b6bd-49ea-80ec-a7bebd19291f" pluginID="Options" rootFolder="Options_Files">
+      <Documents xsi:type="ETAS.EE.Data.ExternalDocumentListType">
+        <Item xsi:type="ETAS.EE.Data.ExternalDocumentType" id="ID8ca08e21-7d3a-40a8-bbc6-5924b50bdbd0" type="" name="Options" file="Options.opt" />
+      </Documents>
+    </Item>
+    <Item xsi:type="ETAS.EE.Data.PluginDataType" id="ID60b19cb8-ed1c-47da-a27c-50169384e2bd" pluginID="SignalSourceManager" rootFolder="SignalSourceManager_Files">
+      <Documents xsi:type="ETAS.EE.Data.ExternalDocumentListType">
+        <Item xsi:type="ETAS.EE.Data.ExternalDocumentType" id="ID72894dcc-4b8f-45d1-a447-de9a7d9372a8" type="" name="SignalSourcesData" file="SignalSources.xml" />
+      </Documents>
+    </Item>
+  </PluginData>
+  <RecentExperiments xsi:type="ETAS.EE.Data.FileReferenceListType">
+    <Item xsi:type="ETAS.EE.Data.FileReferenceType" id="IDe600f638-c317-4dc2-a862-22f8eba6b96b" path="C:\dev\git\example_projects\embedded-world\BalanceTube\ASCET-DEVELOPER\BalanceTube\experiments\Experiments\system\Simulation_PC\Simulation_PC.eex" hintPath="..\..\Experiments\system\Simulation_PC\Simulation_PC.eex" />
+  </RecentExperiments>
+  <WorkspaceInfo xsi:type="ETAS.EE.Data.WorkspaceInfoType">
+    <DateTime xsi:type="ETAS.EE.Data.DateTimeInfoType" id="ID8b6f0a15-a227-412a-a4c8-f0f4a7313e89" Created="2024-04-19T14:40:39.977Z" LastOpened="2024-04-19T16:45:54.729Z" LastSaved="2024-04-19T16:45:53.579Z" />
+    <Version xsi:type="ETAS.EE.Data.VersionInfoType" id="ID6543326e-e212-4157-8332-69209e390e70" Created="3.8.5.253" LastSaved="3.8.5.253" MinRequired="3.3.1" />
+  </WorkspaceInfo>
+</Workspace>

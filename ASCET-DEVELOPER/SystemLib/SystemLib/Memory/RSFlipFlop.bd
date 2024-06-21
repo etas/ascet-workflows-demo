@@ -1,0 +1,113 @@
+classType SystemLib.Memory.RSFlipFlop
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_3
+		}
+	}
+	methodBody nq {
+		outPin {
+			connection_2
+		}
+	}
+	methodBody q {
+		outPin {
+			connection_1
+		}
+	}
+	ifElse at (181, 61) {
+		inPin connection_6 {
+			bendpoints (80, 0)
+		}
+		ifControlFlowOutPin {
+			connection_15
+		}
+		elseControlFlowOutPin {
+			connection_16
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier compute.r at (51, 65) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	literal Boolean "false" at  (301, 103) size (49, 0) {
+		outPin {
+			connection_13
+		}
+	}
+	simpleIdentifier status at  (441, 105) {
+		label at (0, -1)
+		inPin connection_13 outPin sequenceCall at (20, -14) {
+			inPin connection_15 {
+				bendpoints 
+			(190, 0), (190, 30)
+			}
+		}
+	}
+	if at (221, 161) {
+		inPin connection_5 ifControlFlowOutPin {
+			connection_14
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_16 {
+				bendpoints (0, 0)
+			}
+		}
+	}
+	methodArgumentIdentifier compute.s at  (51, 165) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	literal Boolean "true" at  (51, 233) size (49, 0) {
+		outPin {
+			connection_11
+		}
+	}
+	simpleIdentifier status at  (281, 235) {
+		label at (0, -1)
+		inPin connection_11 outPin {
+			connection_9, connection_8
+		}
+		sequenceCall at (20, -14) {
+			inPin connection_14 {
+				bendpoints (0, 60)
+			}
+		}
+	}
+	return at  (521, 235) {
+		label at (0, 0)
+		inPin connection_8 sequenceCall at (10, -14) {
+			inPin connection_1
+		}
+	}
+	not at  (451, 301) {
+		inPin connection_9 {
+			bendpoints 
+		(40, 0), (40, 70)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	return at  (521, 305) {
+		label at (0, 0)
+		inPin connection_7 sequenceCall at (0, -14) {
+			inPin connection_2
+		}
+	}
+}

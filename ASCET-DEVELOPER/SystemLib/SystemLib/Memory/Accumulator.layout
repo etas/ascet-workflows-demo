@@ -1,0 +1,14 @@
+Component SystemLib.Memory.Accumulator size ( 6 , 4 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , -4 )
+
+	methodLayout reset {
+		pin initValue ( Bottom , 2 )
+	}
+	methodLayout compute {
+		pin valCompute ( Left , 1 )
+	}
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+}

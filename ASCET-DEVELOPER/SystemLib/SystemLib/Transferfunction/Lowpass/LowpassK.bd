@@ -1,0 +1,125 @@
+classType SystemLib.Transferfunction.Lowpass.LowpassK
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_2
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_13
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (41, 75) {
+		label at (0, -1)
+		outPin {
+			connection_14
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (211, 75) {
+		label at (0, -1)
+		inPin connection_14 {
+			bendpoints (10, 0), (10, 0)
+		}
+		outPin {
+			connection_12
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_13
+		}
+	}
+	return at  (361, 75) {
+		label at (0, 0)
+		inPin connection_12 {
+			bendpoints (100, 0), (100, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (41, 185) {
+		label at (10, -1)
+		inPin outPin {
+			connection_6
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (401, 225) {
+		label at (0, -1)
+		inPin connection_3 outPin {
+			connection_5, connection_4
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_2
+		}
+	}
+	multiplication at  (141, 186) size (2, 5) {
+		inPin connection_6 inPin connection_8 {
+			bendpoints 
+		(50, 0)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	multiplication at  (261, 206) {
+		inPin connection_7 inPin connection_11 {
+			bendpoints 
+		(30, 0)
+		}
+		outPin {
+			connection_10
+		}
+	}
+	addition at  (321, 216) {
+		inPin connection_10 inPin connection_4 {
+			bendpoints (40, 0), (40, 100), 
+		(-130, 100)
+		}
+		outPin {
+			connection_3
+		}
+	}
+	methodArgumentIdentifier compute.K at  (51, 225) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_8
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.val at (51, 285) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_9
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	subtraction at (191, 286) {
+		inPin connection_9 {
+			bendpoints (10, 0)
+		}
+		inPin connection_5 {
+			bendpoints (40, 0), (40, 100), 
+		(-260, 100)
+		}
+		outPin {
+			connection_11
+		}
+	}
+}

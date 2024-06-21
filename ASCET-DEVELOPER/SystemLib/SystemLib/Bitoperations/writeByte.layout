@@ -1,0 +1,16 @@
+Component SystemLib.Bitoperations.writeByte size ( 11 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -5 , -3 )
+	methodLayout getWriteByte {
+		pin getWriteByte ( Right , 0 )
+		pin bitArray ( Left , 0 )
+		pin b0 ( Bottom , 8 )
+		pin b1 ( Bottom , 7 )
+		pin b2 ( Bottom , 6 )
+		pin b3 ( Bottom , 5 )
+		pin b4 ( Bottom , 4 )
+		pin b5 ( Bottom , 3 )
+		pin b6 ( Bottom , 2 )
+		pin b7 ( Bottom , 1 )
+	}
+}

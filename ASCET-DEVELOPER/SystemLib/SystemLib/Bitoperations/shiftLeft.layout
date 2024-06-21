@@ -1,0 +1,9 @@
+Component SystemLib.Bitoperations.shiftLeft size ( 4 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , -3 )
+	methodLayout getShiftLeft {
+		pin getShiftLeft ( Right , 0 )
+		pin k ( Bottom , 1 )
+		pin bitArray ( Left , 0 )
+	}
+}

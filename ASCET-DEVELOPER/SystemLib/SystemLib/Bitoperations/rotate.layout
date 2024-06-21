@@ -1,0 +1,9 @@
+Component SystemLib.Bitoperations.rotate size ( 4 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , -3 )
+	methodLayout getRotate {
+		pin getRotate ( Right , 0 )
+		pin bitArray ( Left , 0 )
+		pin k ( Bottom , 1 )
+	}
+}

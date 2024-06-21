@@ -1,0 +1,10 @@
+Component SystemLib.Transferfunction.Control.P size ( 8 , 6 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( 1 , -6 )
+	
+	methodLayout value {
+		pin value ( Right , 2 )
+		pin val ( Left , 2 )
+		pin K ( Top , 1 )
+	}
+}

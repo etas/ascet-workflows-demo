@@ -1,0 +1,75 @@
+classType SystemLib.Miscellaneous.DifferenceQuotient
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_2, connection_7
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier compute.valCompute at (41, 85) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_8, connection_6
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier buffer at   (581, 105) {
+		label at (0, -1)
+		inPin connection_3 outPin {
+			connection_10
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_2
+		}
+	}
+	return at   (691, 105) {
+		label at (10, 0)
+		inPin connection_10 sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	subtraction at   (361, 86) {
+		inPin connection_6 inPin connection_9 {
+			bendpoints 
+		(60, 0), 
+		(60, -50)
+		}
+		outPin {
+			connection_5
+		}
+	}
+	division at   (501, 96) size (2, 4) {
+		inPin connection_5 inPin connection_4 outPin {
+			connection_3
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at   (391, 125) {
+		label at (10, -1)
+		inPin outPin {
+			connection_4
+		}
+		sequenceCall at (-30, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier oldValue at  (241, 155) {
+		label at (0, -1)
+		inPin connection_8 {
+			bendpoints (110, 0), 
+		(110, 70)
+		}
+		outPin {
+			connection_9
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_7
+		}
+	}
+}

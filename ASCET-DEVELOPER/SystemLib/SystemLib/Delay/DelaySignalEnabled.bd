@@ -1,0 +1,119 @@
+classType SystemLib.Delay.DelaySignalEnabled
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_2
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_3
+		}
+	}
+	if at  (211, 41) {
+		inPin connection_13 ifControlFlowOutPin {
+			connection_16, connection_15
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_2
+		}
+	}
+	methodArgumentIdentifier compute.enable at (61, 45) {
+		label at (0, -1)
+		outPin {
+			connection_13
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.signal at (61, 115) {
+		label at (0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory1 at  (281, 115) {
+		label at (0, -1)
+		inPin connection_5 outPin {
+			connection_7
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_15 {
+				bendpoints (10, 0), (10, 60)
+			}
+		}
+	}
+	simpleIdentifier memory2 at  (401, 115) {
+		label at (0, -1)
+		inPin connection_7 outPin {
+			connection_8
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_16 {
+				bendpoints 
+			(140, 0), (140, 60)
+			}
+		}
+	}
+	return at  (531, 115) {
+		label at (0, 0)
+		inPin connection_8 sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	if at  (211, 211) {
+		inPin connection_14 ifControlFlowOutPin {
+			connection_17, connection_18
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier reset.initEnable at (61, 215) {
+		label at (0, -1)
+		outPin {
+			connection_14
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier reset.initValue at (61, 285) {
+		label at (0, -1)
+		outPin {
+			connection_10
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory1 at  (281, 285) {
+		label at (0, -1)
+		inPin connection_10 outPin {
+			connection_12
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_17 {
+				bendpoints (30, 0)
+			}
+		}
+	}
+	simpleIdentifier memory2 at  (411, 285) {
+		label at (0, -1)
+		inPin connection_12 outPin sequenceCall at (10, -14) {
+			inPin connection_18 {
+				bendpoints (150, 0), 
+			(150, 60)
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+﻿STM32CubeIDE/GithubActions_ST/Debug
+STM32CubeIDE/GithubActions_ST/src-gen/lib
+STM32CubeIDE/GithubActions_ST/xcp-gen/
+
+**/.trace
+
+*.trace
+*.log
+*.o
+*.exe
+ASCET-DEVELOPER/BalanceTube/ESDL_Linear_Interpolation.ini

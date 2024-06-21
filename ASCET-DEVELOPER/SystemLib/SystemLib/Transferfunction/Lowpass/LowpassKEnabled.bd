@@ -1,0 +1,156 @@
+classType SystemLib.Transferfunction.Lowpass.LowpassKEnabled
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_3
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_2
+		}
+	}
+	if at  (261, 41) {
+		inPin connection_17 ifControlFlowOutPin {
+			connection_20
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_2
+		}
+	}
+	methodArgumentIdentifier reset.initEnable at  (61, 45) {
+		label at (0, -1)
+		outPin {
+			connection_17
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (61, 105) {
+		label at (0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (321, 105) {
+		label at (0, -1)
+		inPin connection_5 outPin {
+			connection_15
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_20 {
+				bendpoints (10, 0), 
+			(10, 50)
+			}
+		}
+	}
+	return at  (471, 105) {
+		label at (0, 0)
+		inPin connection_15
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	if at  (271, 181) {
+		inPin connection_18 ifControlFlowOutPin {
+			connection_19
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier compute.enable at  (61, 185) {
+		label at (0, -1)
+		outPin {
+			connection_18
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at (51, 245) {
+		label at (10, -1)
+		inPin outPin {
+			connection_16
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	multiplication at  (211, 246) size (2, 5) {
+		inPin connection_16 inPin connection_14 outPin {
+			connection_13
+		}
+	}
+	methodArgumentIdentifier compute.K at  (61, 285) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_14
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (421, 305) {
+		label at (0, -1)
+		inPin connection_9 outPin {
+			connection_7, connection_6
+		}
+		sequenceCall at (20, -14) {
+			inPin connection_19 {
+				bendpoints 
+			(120, 0)
+			}
+		}
+	}
+	multiplication at  (271, 266) size (2, 8) {
+		inPin connection_13 inPin connection_11 {
+			bendpoints 
+		(20, 0)
+		}
+		outPin {
+			connection_10
+		}
+	}
+	addition at  (341, 296) {
+		inPin connection_10 inPin connection_6 {
+			bendpoints (40, 0), (40, 90), 
+		(-140, 90), (-140, 10)
+		}
+		outPin {
+			connection_9
+		}
+	}
+	methodArgumentIdentifier compute.val at  (61, 325) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_12
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	subtraction at  (211, 326) {
+		inPin connection_12 {
+			bendpoints (110, 0)
+		}
+		inPin connection_7 {
+			bendpoints (40, 0), (40, 90), 
+		(-260, 90)
+		}
+		outPin {
+			connection_11
+		}
+	}
+}

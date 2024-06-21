@@ -1,0 +1,20 @@
+name: Run All Tests and Build All Artifacts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ehb:
+    name: Build EHANDBOOK Container
+    uses: ./.github/workflows/build-for-ehandbook.yml
+  testing:
+    name: Run Tests
+    uses: ./.github/workflows/run-tests.yml
+    permissions:
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
+  build:
+    name: Build INCA Artifacts
+    uses: ./.github/workflows/build-for-inca.yml

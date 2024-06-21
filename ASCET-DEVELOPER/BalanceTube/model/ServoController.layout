@@ -1,0 +1,21 @@
+Component       model.ServoController size ( 14 , 8 ) {
+	labelPosition ( 0 , 9 )
+	methodLayout periodicTrigger {
+		pin periodicTrigger ( Top , 0 )
+	}
+	memberLayout gameState {
+		setPinPosition ( Left , 0 )
+	}
+	memberLayout switchMode {
+		setPinPosition ( Left , 1 )
+	}
+	memberLayout ballPosition {
+		setPinPosition ( Left , 2 )
+	}
+	memberLayout handPosition {
+		setPinPosition ( Left , 3 )
+	}
+	memberLayout servoPosition {
+		getPinPosition ( Right , 0 )
+	}
+}

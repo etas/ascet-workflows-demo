@@ -1,0 +1,4 @@
+<?SCHEMA schemaVersion="1.0"?>
+<DataloggerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Program%20Files/Common%20Files/ETAS/Experiment%20Environment/3.8/Schemas/EE.Data.Datalogger.xsd" xsi:type="ETAS.EE.Data.DataloggerType">
+  <DataloggerCombinations xsi:type="ETAS.EE.Data.DataloggerCombinationListType" />
+</DataloggerData>

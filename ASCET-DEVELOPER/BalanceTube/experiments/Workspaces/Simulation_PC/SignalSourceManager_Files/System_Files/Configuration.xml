@@ -1,0 +1,4 @@
+<?SCHEMA schemaVersion="1.0"?>
+<ETargetSignalSourceData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Program%20Files/Common%20Files/ETAS/Experiment%20Environment/3.8/Schemas/EE.Data.SignalSource.ETarget.xsd" xsi:type="ETAS.EE.Data.ETargetSignalSourceDataType">
+  <Configuration xsi:type="ETAS.EE.Data.ETargetConfigurationType" a2lfile="Simulation_PCL1.a2l" hexfile="Simulation_PC.a2l.cod" rtpfile="" />
+</ETargetSignalSourceData>

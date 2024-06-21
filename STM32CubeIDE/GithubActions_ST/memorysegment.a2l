@@ -1,0 +1,56 @@
+			
+			/begin MEMORY_SEGMENT AscetCode "" 
+				CODE FLASH INTERN 0x08000000 0x0000F800 -1 -1 -1 -1 -1 
+				/begin IF_DATA XCP
+					/begin SEGMENT
+						0x00 /* segment logical number */
+						0x01 /* number of pages */
+						0x00 /* address extension */
+						0x00 /* compression method */
+						0x00 /* encryption method */
+						/begin CHECKSUM
+							XCP_ADD_14
+						/end CHECKSUM
+						/begin PAGE
+							0x00 /* page number */
+							ECU_ACCESS_WITH_XCP_ONLY
+							XCP_READ_ACCESS_WITH_ECU_ONLY
+							XCP_WRITE_ACCESS_NOT_ALLOWED
+						/end PAGE
+					/end SEGMENT
+				/end IF_DATA
+			/end MEMORY_SEGMENT
+			
+			/begin MEMORY_SEGMENT AscetCalibrationRom ""
+				DATA ROM INTERN 0x0800F800 0x00000800 -1 -1 -1 -1 -1 
+				/begin IF_DATA XCP
+					/begin SEGMENT
+						0x01 /* segment logical number */
+						0x02 /* number of pages */
+						0x00 /* address extension */
+						0x00 /* compression method */
+						0x00 /* encryption method */
+						/begin CHECKSUM
+							XCP_ADD_14
+						/end CHECKSUM
+						/begin PAGE
+							0x00 /* page number - reference page */
+							ECU_ACCESS_WITH_XCP_ONLY
+							XCP_READ_ACCESS_WITH_ECU_ONLY
+							XCP_WRITE_ACCESS_NOT_ALLOWED
+							INIT_SEGMENT 1
+						/end PAGE
+						/begin PAGE
+							0x01 /* page number - working page */
+							ECU_ACCESS_WITH_XCP_ONLY
+							XCP_READ_ACCESS_WITH_ECU_ONLY
+							XCP_WRITE_ACCESS_WITH_ECU_ONLY
+							INIT_SEGMENT 1
+						/end PAGE
+					/end SEGMENT
+				/end IF_DATA
+			/end MEMORY_SEGMENT
+			
+			/begin MEMORY_SEGMENT Variables ""
+				DATA RAM INTERN 0x20000000 0x00002800 -1 -1 -1 -1 -1 
+			/end MEMORY_SEGMENT

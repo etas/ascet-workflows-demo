@@ -1,0 +1,9 @@
+Component SystemLib.Comparators.GreaterZero size ( 4 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , 0 )
+	
+	methodLayout value {
+		pin value ( Right , 0 )
+		pin val ( Left , 0 )
+	}
+}

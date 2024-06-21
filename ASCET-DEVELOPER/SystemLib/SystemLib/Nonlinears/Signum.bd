@@ -1,0 +1,80 @@
+classType SystemLib.Nonlinears.Signum
+blockdiagramSpecification Main {
+	methodBody value {
+		outPin active {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier value.x at (71, 55) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_2
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	greater at  (211, 56) size (2, 4) {
+		inPin connection_2 inPin connection_3 outPin {
+			connection_7
+		}
+	}
+	literal Numeric "0.0" at  (71, 83) size (49, 0) {
+		outPin {
+			connection_3
+		}
+	}
+	methodArgumentIdentifier value.x at  (71, 135) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_11
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	equal at  (211, 136) size (2, 4) {
+		inPin connection_11 inPin connection_4 outPin {
+			connection_10
+		}
+	}
+	literal Numeric "0.0" at  (71, 163) size (49, 0) {
+		outPin {
+			connection_4
+		}
+	}
+	conditionalSelect at  (251, 241) size (3, 6) {
+		inPin connection_5 inPin CASE_CONDITION connection_10 {
+			bendpoints (20, 0)
+		}
+		inPin connection_6 inPin CASE_CONDITION connection_7 {
+			bendpoints (30, 0)
+		}
+		inPin connection_8 outPin {
+			connection_9
+		}
+	}
+	literal Numeric "-1.0" at  (71, 253) size (49, 0) {
+		outPin {
+			connection_5
+		}
+	}
+	literal Numeric "1.0" at  (71, 273) size (49, 0) {
+		outPin {
+			connection_8
+		}
+	}
+	return at  (361, 275) {
+		label at (0, 0)
+		inPin connection_9 sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	literal Numeric "0.0" at  (71, 293) size (49, 0) {
+		outPin {
+			connection_6
+		}
+	}
+}

@@ -1,0 +1,9 @@
+Component SystemLib.Bitoperations.or size ( 4 , 4 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , -5 )
+	methodLayout getOr {
+		pin getOr ( Right , 1 )
+		pin bitArray1 ( Left , 0 )
+		pin bitArray2 ( Left , 2 )
+	}
+}

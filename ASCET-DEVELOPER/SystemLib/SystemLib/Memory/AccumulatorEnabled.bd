@@ -1,0 +1,137 @@
+classType SystemLib.Memory.AccumulatorEnabled
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_3
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_2
+		}
+	}
+	if at  (201, 31) {
+		inPin connection_15 ifControlFlowOutPin {
+			connection_17
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_2
+		}
+	}
+	methodArgumentIdentifier reset.initEnalbe at  (41, 35) {
+		label at (0, -1)
+		outPin {
+			connection_15
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (41, 85) {
+		label at (0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (291, 85) {
+		label at (0, -1)
+		inPin connection_5 outPin {
+			connection_6
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_17 {
+				bendpoints (0, 40)
+			}
+		}
+	}
+	return at (441, 85) {
+		label at (0, 0)
+		inPin connection_6 sequenceCall at (10, -14) {
+			inPin connection_1
+		}
+	}
+	if at  (201, 181) {
+		inPin connection_16 ifControlFlowOutPin {
+			connection_18
+		}
+		sequenceCall at (-20, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier compute.enable at   (41, 185) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_16
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.valCompute at  (41, 255) {
+		label at (10, -1)
+		outPin {
+			connection_14
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	addition at  (281, 256) {
+		inPin connection_14 inPin connection_7 {
+			bendpoints (50, 0), (50, 70), 
+		(-400, 70), (-400, -20)
+		}
+		outPin {
+			connection_13
+		}
+	}
+	minimum at  (451, 266) {
+		inPin connection_13 inPin connection_12 outPin {
+			connection_10
+		}
+	}
+	maximum at  (511, 276) size (2, 6) {
+		inPin connection_10
+		inPin connection_11 outPin {
+			connection_9
+		}
+	}
+	simpleIdentifier memory at  (591, 295) {
+		label at (0, -1)
+		inPin connection_9 outPin {
+			connection_7
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_18 {
+				bendpoints (350, 0)
+			}
+		}
+	}
+	methodArgumentIdentifier compute.mx at  (341, 285) {
+		label at (0, -1)
+		outPin {
+			connection_12
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	methodArgumentIdentifier compute.mn at  (341, 325) {
+		label at (10, -1)
+		outPin {
+			connection_11
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+}

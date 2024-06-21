@@ -1,0 +1,13 @@
+Component SystemLib.Miscellaneous.Mux1of4 size ( 3 , 5 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -1 , 1 )
+	methodLayout value {
+		pin value ( Right , 2 )
+		pin s0 ( Left , 0 )
+		pin s1 ( Left , 1 )
+		pin b1 ( Top , 1 )
+		pin s2 ( Left , 2 )
+		pin s3 ( Left , 3 )
+		pin b0 ( Top , 0 )
+	}
+}

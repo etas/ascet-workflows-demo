@@ -1,0 +1,64 @@
+classType SystemLib.Miscellaneous.EdgeRising
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_5, connection_2
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier compute.signal at  (31, 115) {
+		label at (0, -1)
+		outPin {
+			connection_7, connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	and at   (361, 116) {
+		inPin connection_7 inPin connection_8 {
+			bendpoints (10, 0), (10, -50)
+		}
+		outPin {
+			connection_6
+		}
+	}
+	simpleIdentifier buffer at   (441, 125) {
+		label at (0, -1)
+		inPin connection_6 outPin {
+			connection_9
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_5
+		}
+	}
+	return at   (561, 125) {
+		label at (0, 0)
+		inPin connection_9 sequenceCall at (10, -14) {
+			inPin connection_1
+		}
+	}
+	not at   (301, 181) {
+		inPin connection_4 outPin {
+			connection_8
+		}
+	}
+	simpleIdentifier oldSignal at  (211, 185) {
+		label at (0, -1)
+		inPin connection_3 {
+			bendpoints (110, 0), 
+		
+		(110, 70)
+		}
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_2
+		}
+	}
+}

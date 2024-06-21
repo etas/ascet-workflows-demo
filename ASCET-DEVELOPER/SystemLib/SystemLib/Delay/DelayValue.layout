@@ -1,0 +1,11 @@
+Component SystemLib.Delay.DelayValue size ( 3 , 2 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -1 , 1 )
+	methodLayout compute {
+		pin valCompute ( Left , 1 )
+	}
+
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+}

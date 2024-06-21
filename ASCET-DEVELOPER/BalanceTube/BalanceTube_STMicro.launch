@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.etas.ascet.build.ui.CGenLauncher">
+    <stringAttribute key="com.etas.ascet.build.advanced.options.file" value="\BalanceTube\stm32f334r8.properties"/>
+    <stringAttribute key="com.etas.ascet.build.application.file" value="/BalanceTube/BalanceTube.app"/>
+    <stringAttribute key="com.etas.ascet.build.arithmetic.service.definitionPath" value=""/>
+    <booleanAttribute key="com.etas.ascet.build.arithmetic.service.replaceStandard" value="false"/>
+    <stringAttribute key="com.etas.ascet.build.asam.mdx.code.syntax.definitionPath" value=""/>
+    <booleanAttribute key="com.etas.ascet.build.asap2" value="true"/>
+    <stringAttribute key="com.etas.ascet.build.asap2.model.path" value="ROOT_FIRST"/>
+    <booleanAttribute key="com.etas.ascet.build.asap2.skip.entry.class.nodes" value="false"/>
+    <booleanAttribute key="com.etas.ascet.build.asap2.use.element.unit.for.formula" value="true"/>
+    <stringAttribute key="com.etas.ascet.build.asap2.version" value="1.70"/>
+    <stringAttribute key="com.etas.ascet.build.buildSettingsPath" value=""/>
+    <stringAttribute key="com.etas.ascet.build.codeGenerator.name" value="SERVERCETASASCET-DEVELOPER7.9"/>
+    <stringAttribute key="com.etas.ascet.build.codeGenerator.version" value="6.4.7"/>
+    <stringAttribute key="com.etas.ascet.build.compiler.defines" value=""/>
+    <stringAttribute key="com.etas.ascet.build.compiler.inlineDirective" value=""/>
+    <stringAttribute key="com.etas.ascet.build.compiler.memoryDirective" value="\BalanceTube\memorySections.xml"/>
+    <stringAttribute key="com.etas.ascet.build.compiler.options" value=""/>
+    <stringAttribute key="com.etas.ascet.build.defaultRepresentationInteger" value="32"/>
+    <stringAttribute key="com.etas.ascet.build.defaultRepresentationReal" value="float32"/>
+    <booleanAttribute key="com.etas.ascet.build.inline.esdl" value="false"/>
+    <stringAttribute key="com.etas.ascet.build.interpolation.defaultScheme" value="ESDL_Linear_Interpolation"/>
+    <stringAttribute key="com.etas.ascet.build.interpolation.definitionPath" value="${project_loc}"/>
+    <booleanAttribute key="com.etas.ascet.build.mdx" value="false"/>
+    <stringAttribute key="com.etas.ascet.build.mdx.version" value="1.3.0"/>
+    <stringAttribute key="com.etas.ascet.build.messages.cache" value="CACHE_DISABLED"/>
+    <booleanAttribute key="com.etas.ascet.build.naming.ascet6LegacyMode" value="false"/>
+    <booleanAttribute key="com.etas.ascet.build.os.tasks.generate" value="true"/>
+    <stringAttribute key="com.etas.ascet.build.os.tasks.type" value="GENERIC_OS"/>
+    <stringAttribute key="com.etas.ascet.build.output.fileStructure" value="COMPONENT"/>
+    <stringAttribute key="com.etas.ascet.build.output.folder" value="${project_loc}/../../STM32CubeIDE/GithubActions_ST/src-gen"/>
+    <booleanAttribute key="com.etas.ascet.build.output.project" value="false"/>
+    <booleanAttribute key="com.etas.ascet.build.output.project.cdt" value="true"/>
+    <booleanAttribute key="com.etas.ascet.build.physicalImplementation" value="false"/>
+    <stringAttribute key="com.etas.ascet.build.resolveCCodeVariant" value=""/>
+    <stringAttribute key="com.etas.ascet.build.systemConstants.resolveTime" value="compileTime"/>
+    <stringAttribute key="com.etas.ascet.build.target.integerDivisionRounding" value="truncate"/>
+    <stringAttribute key="com.etas.ascet.build.target.wordSize" value="32"/>
+    <booleanAttribute key="com.etas.ascet.build.useDefaultBuildSettingsPath" value="false"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/BalanceTube/BalanceTube.app"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+</launchConfiguration>

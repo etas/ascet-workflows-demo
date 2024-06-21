@@ -1,0 +1,68 @@
+classType SystemLib.Miscellaneous.EdgeFalling
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_4, connection_2
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	not at   (241, 81) {
+		inPin connection_7 outPin {
+			connection_8
+		}
+	}
+	methodArgumentIdentifier compute.signal at (51, 85) {
+		label at (0, -1)
+		outPin {
+			connection_7, connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	and at   (371, 86) {
+		inPin connection_8 inPin connection_9 {
+			bendpoints 
+		(80, 0)
+		}
+		outPin {
+			connection_5
+		}
+	}
+	simpleIdentifier buffer at   (451, 95) {
+		label at (0, -1)
+		inPin connection_5 outPin {
+			connection_6
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_4
+		}
+	}
+	return at   (571, 95) {
+		label at (0, 0)
+		inPin connection_6 {
+			bendpoints (10, 0), (10, 0)
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_1
+		}
+	}
+	simpleIdentifier oldSignal at   (241, 165) {
+		label at (0, -1)
+		inPin connection_3 {
+			bendpoints (110, 0), 
+		
+		(110, 80)
+		}
+		outPin {
+			connection_9
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_2
+		}
+	}
+}

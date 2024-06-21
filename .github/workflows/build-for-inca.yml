@@ -1,0 +1,119 @@
+name: Build Artifacts for INCA
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+defaults:
+  run:
+    shell: cmd
+
+env:
+  ASCET_INSTALL_PATH: C:/ETAS/ASCET-DEVELOPER7.9
+  ST_INSTALL_PATH: C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE
+  PERL_INSTALL_PATH: C:/Strawberry/perl/bin
+  XCP_INSTALL_PATH: C:/ETAS/XCP_ECU_software
+  EHANDBOOK_INSTALL_PATH: C:\ETAS\EHB-CB
+  PROJECT_CHECKOUT: checkout
+  ST_WORKSPACE: st-workspace
+  ST_BUILD_FOLDER: STM32CubeIDE\GithubActions_ST
+
+jobs:
+  inca:
+    name: INCA Artifacts
+    runs-on: ascet
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        path: ${{ env.PROJECT_CHECKOUT }}
+    - name: Configure
+      run: |
+        mkdir %RUNNER_TEMP%\artifacts\a2l
+        echo ARTIFACTS_DIR=%RUNNER_TEMP%\artifacts>> %GITHUB_ENV%
+        mkdir ${{ env.ST_BUILD_FOLDER }}\xcp-gen\src
+        mkdir ${{ env.ST_BUILD_FOLDER }}\xcp-gen\include
+      working-directory: ${{ env.PROJECT_CHECKOUT }}
+    - name: Generate XCP Code
+      run: >
+        "${{ env.PERL_INSTALL_PATH }}\perl.exe" "${{ env.XCP_INSTALL_PATH }}\ConfigTool\xcp_conf.pl"
+        xcp-conf.xml 
+        --cOutputDir xcp-gen\src
+        --hOutputDir xcp-gen\include
+        -a2lOutputDir xcp-gen
+      working-directory: ${{ env.PROJECT_CHECKOUT }}\${{ env.ST_BUILD_FOLDER }}
+    - name: Encode Git Revision
+      run: |
+        $git_revision = if ("${{ github.event_name }}" -eq "pull_request") {
+                          "${{ github.event.pull_request.head.sha }}"
+                        } else { 
+                          "${{ github.sha }}"
+                        }
+        $git_short_revision = $(git rev-parse --short $git_revision)
+        @(
+            "mod_par.a2l",
+            ".cproject"
+        ) | % {
+          (Get-Content $_)  -replace 'AGA_REVISION=&quot;0000000&quot;', "AGA_REVISION=&quot;$git_short_revision&quot;" `
+                            -replace '#AGA_REVISION#', "$git_short_revision" `
+            | Set-Content $_
+        }
+      shell: pwsh
+      working-directory: ${{ env.PROJECT_CHECKOUT}}\${{ env.ST_BUILD_FOLDER }}
+    - name: Encode Version Tag
+      run: |
+        $tag = if ("${{ github.ref }}" -match "refs/tags/(.*)") { $matches[1] } else { "Beta" }
+        (Get-Content "mod_par.a2l") -replace 'VERSION "000"', "VERSION `"$tag`"" | Set-Content "mod_par.a2l"
+      working-directory: ${{ env.PROJECT_CHECKOUT}}\${{ env.ST_BUILD_FOLDER }}
+      shell: pwsh
+    - name: Build Executable
+      run: >
+        "${{ env.ST_INSTALL_PATH }}/stm32cubeidec.exe"
+        --launcher.suppressErrors
+        -nosplash
+        -application org.eclipse.cdt.managedbuilder.core.headlessbuild
+        -importAll "${{ env.PROJECT_CHECKOUT }}/STM32CubeIDE"
+        -data "${{ env.ST_WORKSPACE }}"
+        -build GithubActions_ST
+    - name: Collect all Compilation Units
+      run: |
+        $compilation_units = (Get-ChildItem -Filter "*.c" | % { "../src-gen/src/" + $_.Name }) -join ";"
+        echo "COMPILATION_UNITS=$compilation_units" >> $env:GITHUB_ENV
+      shell: pwsh
+      working-directory: ${{ env.PROJECT_CHECKOUT }}\${{ env.ST_BUILD_FOLDER }}\src-gen\src
+    - name: Patch A2L
+      env:
+        PLUGINS: ${{ env.ASCET_INSTALL_PATH }}\plugins
+        SRC_GEN: ${{ env.ST_BUILD_FOLDER }}\src-gen
+      run: >
+        ${{ env.EHANDBOOK_INSTALL_PATH }}\jre\bin\java.exe
+        -cp "C:\bin\com.etas.dwarf-919e450f.jar;${{ env.PLUGINS }}\picocli_4.7.5.jar"
+        com.etas.dwarf.cli.DwarfReader
+        "${{ env.ST_BUILD_FOLDER }}\Debug\GithubActions_ST.elf"
+        -u "${{ env.COMPILATION_UNITS }}"
+        patch
+        "${{ env.SRC_GEN }}\BalanceTube_STMicro.a2l"
+        -m "${{ env.SRC_GEN }}\BalanceTube_STMicro.mapping.cnames.csv"
+        --add-xcp-include
+        --force-ascii
+        --replace-mod-par "mod_par.a2l"
+      working-directory: ${{ env.PROJECT_CHECKOUT }}
+    - name: Copy Artifacts
+      run: |
+        copy "Debug\GithubActions_ST.elf" "${{ env.ARTIFACTS_DIR }}\BalanceTube_STMicro.elf"
+        copy "Debug\GithubActions_ST.map" "${{ env.ARTIFACTS_DIR }}\BalanceTube_STMicro.map"
+        copy "Debug\GithubActions_ST.hex" "${{ env.ARTIFACTS_DIR }}\BalanceTube_STMicro.hex"
+        copy "src-gen\BalanceTube_STMicro.mapping.cnames.csv" "${{ env.ARTIFACTS_DIR }}"
+        copy "src-gen\BalanceTube_STMicro.a2l.patched" "${{ env.ARTIFACTS_DIR }}\BalanceTube_STMicro.a2l"
+        copy "mod_par.a2l" "${{ env.ARTIFACTS_DIR }}"
+        copy "memorysegment.a2l" "${{ env.ARTIFACTS_DIR }}"
+        copy "xcp-gen\if_data_xcp_session0.a2l" "${{ env.ARTIFACTS_DIR }}"
+        copy "${{ env.XCP_INSTALL_PATH }}\ASAM_XCP_standard\AML\*" "${{ env.ARTIFACTS_DIR }}"
+      working-directory: ${{ env.PROJECT_CHECKOUT }}\${{ env.ST_BUILD_FOLDER }}
+    - name: Upload Artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: INCA
+        path: ${{ env.ARTIFACTS_DIR }}
+        overwrite: true

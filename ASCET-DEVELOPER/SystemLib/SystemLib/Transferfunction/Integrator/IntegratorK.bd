@@ -1,0 +1,100 @@
+classType SystemLib.Transferfunction.Integrator.IntegratorK
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_8
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_2
+		}
+	}
+	methodArgumentIdentifier reset.initValue at  (61, 85) {
+		label at (0, -1)
+		outPin {
+			connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at (211, 85) {
+		label at (0, -1)
+		inPin connection_3 outPin {
+			connection_4
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_2
+		}
+	}
+	return at (351, 85) {
+		label at (0, 0)
+		inPin connection_4 {
+			bendpoints (90, 0), (90, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier compute.val at (61, 225) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_11
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	multiplication at  (251, 226) size (2, 9) {
+		inPin connection_11 inPin connection_12
+		inPin connection_13 outPin {
+			connection_6
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at (51, 265) {
+		label at (10, -1)
+		inPin outPin {
+			connection_12
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier memory at  (411, 275) {
+		label at (0, -1)
+		inPin connection_9
+		outPin {
+			connection_10
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_8
+		}
+	}
+	addition at  (341, 266) {
+		inPin connection_6
+		inPin connection_10 {
+			bendpoints (40, 0), (40, 50), 
+		(-140, 50), (-140, 10)
+		}
+		outPin {
+			connection_9
+		}
+	}
+	methodArgumentIdentifier compute.K at (61, 305) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_13
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+}

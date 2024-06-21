@@ -1,0 +1,123 @@
+classType SystemLib.Nonlinears.Hysteresis_LSP_RSP
+blockdiagramSpecification Main {
+	methodBody value {
+		outPin active {
+			connection_1, connection_3
+		}
+	}
+	methodArgumentIdentifier value.x at  (21, 35) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	greater at  (121, 36) size (2, 5) {
+		inPin connection_5 inPin connection_6 {
+			bendpoints 
+		(60, 0)
+		}
+		outPin {
+			connection_4
+		}
+	}
+	ifElse at (231, 51) {
+		inPin connection_4 ifControlFlowOutPin {
+			connection_15
+		}
+		elseControlFlowOutPin {
+			connection_16
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier value.rsp at  (21, 75) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	literal Boolean "true" at  (311, 93) size (49, 0) {
+		outPin {
+			connection_8
+		}
+	}
+	simpleIdentifier hysterese at (391, 95) {
+		label at (0, -1)
+		inPin connection_8 outPin sequenceCall at (10, -14) {
+			inPin connection_15 {
+				bendpoints (120, 0)
+			}
+		}
+	}
+	methodArgumentIdentifier value.x at (21, 165) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_10
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	less at  (121, 166) size (2, 5) {
+		inPin connection_10 inPin connection_11 {
+			bendpoints 
+		(60, 0)
+		}
+		outPin {
+			connection_9
+		}
+	}
+	if at  (301, 181) {
+		inPin connection_9 ifControlFlowOutPin {
+			connection_17
+		}
+		sequenceCall at  (-10, -20) {
+			inPin connection_16 {
+				bendpoints 
+			(0, 80)
+			}
+		}
+	}
+	methodArgumentIdentifier value.lsp at (21, 205) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_11
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	literal Boolean "false" at  (311, 243) size (49, 0) {
+		outPin {
+			connection_14
+		}
+	}
+	simpleIdentifier hysterese at  (391, 245) {
+		label at (0, -1)
+		inPin connection_14 outPin {
+			connection_12
+		}
+		sequenceCall at  (0, -24) {
+			inPin connection_17 {
+				bendpoints (40, 0)
+			}
+		}
+	}
+	return at  (511, 245) {
+		label at (0, 0)
+		inPin connection_12 sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+}

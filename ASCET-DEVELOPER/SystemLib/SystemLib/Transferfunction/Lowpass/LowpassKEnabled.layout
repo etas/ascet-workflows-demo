@@ -1,0 +1,16 @@
+Component SystemLib.Transferfunction.Lowpass.LowpassKEnabled size ( 8 , 6 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( 5 , -6 )
+	methodLayout compute {
+		pin val ( Left , 2 )
+		pin K ( Top , 3 )
+		pin enable ( Bottom , 0 )
+	}
+	methodLayout reset {
+		pin initValue ( Bottom , 3 )
+		pin initEnable ( Bottom , 6 )
+	}
+	methodLayout value {
+		pin value ( Right , 2 )
+	}
+}

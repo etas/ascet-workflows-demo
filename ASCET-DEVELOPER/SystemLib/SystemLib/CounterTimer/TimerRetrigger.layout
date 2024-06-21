@@ -1,0 +1,15 @@
+Component SystemLib.CounterTimer.TimerRetrigger size ( 5 , 3 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , 0 )
+
+	methodLayout begin {
+		pin startTime ( Top , 2 )
+	}
+
+	methodLayout value {
+		pin value ( Right , 1 )
+	}
+	methodLayout compute {
+		pin compute ( Left , 1 )
+	}
+}

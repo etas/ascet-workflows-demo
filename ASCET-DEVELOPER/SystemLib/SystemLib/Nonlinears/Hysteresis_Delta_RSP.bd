@@ -1,0 +1,138 @@
+classType SystemLib.Nonlinears.Hysteresis_Delta_RSP
+blockdiagramSpecification Main {
+	methodBody value {
+		outPin active {
+			connection_1, connection_3
+		}
+	}
+	methodArgumentIdentifier value.x at  (51, 45) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	greater at  (161, 46) size (2, 5) {
+		inPin connection_4 inPin connection_6 outPin {
+			connection_5
+		}
+	}
+	ifElse at  (281, 61) {
+		inPin connection_5 ifControlFlowOutPin {
+			connection_17
+		}
+		elseControlFlowOutPin {
+			connection_18
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier value.rsp at  (51, 85) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	literal Boolean "true" at  (341, 93) size (49, 0) {
+		outPin {
+			connection_8
+		}
+	}
+	simpleIdentifier hysterese at  (441, 95) {
+		label at (0, -1)
+		inPin connection_8 outPin sequenceCall at (10, -14) {
+			inPin connection_17 {
+				bendpoints (120, 0)
+			}
+		}
+	}
+	methodArgumentIdentifier value.x at  (51, 175) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_12
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	less at  (231, 176) {
+		inPin connection_12 inPin connection_13 {
+			bendpoints 
+		(30, 0)
+		}
+		outPin {
+			connection_11
+		}
+	}
+	if at  (321, 181) {
+		inPin connection_11 {
+			bendpoints (40, 0)
+		}
+		ifControlFlowOutPin {
+			connection_19
+		}
+		sequenceCall at  (0, -20) {
+			inPin connection_18 {
+				bendpoints 
+			(0, 70)
+			}
+		}
+	}
+	methodArgumentIdentifier value.rsp at  (51, 225) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_9
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	subtraction at  (161, 226) size (2, 5) {
+		inPin connection_9 inPin connection_10 outPin {
+			connection_13
+		}
+	}
+	literal Boolean "false" at  (301, 253) size (49, 0) {
+		outPin {
+			connection_16
+		}
+	}
+	simpleIdentifier hysterese at  (451, 255) {
+		label at (0, -1)
+		inPin connection_16 outPin {
+			connection_14
+		}
+		sequenceCall at (20, -14) {
+			inPin connection_19 {
+				bendpoints (10, 0), 
+			(10, 60)
+			}
+		}
+	}
+	return at  (571, 255) {
+		label at (10, 0)
+		inPin connection_14 sequenceCall at (10, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier value.deltav at  (51, 265) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_10
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+}

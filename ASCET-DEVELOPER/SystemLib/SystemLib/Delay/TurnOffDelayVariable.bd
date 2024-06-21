@@ -1,0 +1,155 @@
+classType SystemLib.Delay.TurnOffDelayVariable
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_1
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_3
+		}
+	}
+	ifElse at (251, 51) {
+		inPin connection_18 ifControlFlowOutPin {
+			connection_20, connection_19
+		}
+		elseControlFlowOutPin {
+			connection_21
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier compute.signal at  (31, 55) {
+		label at (0, -1)
+		outPin {
+			connection_18
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	literal Numeric "0.0" at  (391, 83) size (49, 0) {
+		outPin {
+			connection_10
+		}
+	}
+	simpleIdentifier time at (481, 85) {
+		label at (10, -1)
+		inPin connection_10 outPin sequenceCall at (10, -14) {
+			inPin connection_20 {
+				bendpoints (190, 0)
+			}
+		}
+	}
+	literal Boolean "true" at  (391, 143) size (49, 0) {
+		outPin {
+			connection_12
+		}
+	}
+	simpleIdentifier outbit at (481, 145) {
+		label at (0, -1)
+		inPin connection_12 outPin sequenceCall at (20, -24) {
+			inPin connection_19 {
+				bendpoints (70, 0), (70, 70)
+			}
+		}
+	}
+	simpleIdentifier time at  (21, 235) {
+		label at (20, -1)
+		inPin outPin {
+			connection_13
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	less at  (161, 236) size (2, 5) {
+		inPin connection_13 inPin connection_15 outPin {
+			connection_14
+		}
+	}
+	ifElse at  (331, 251) {
+		inPin connection_14 ifControlFlowOutPin {
+			connection_22
+		}
+		elseControlFlowOutPin {
+			connection_23
+		}
+		sequenceCall at   (0, -20) {
+			inPin connection_21 {
+				bendpoints 
+			
+			(0, 150)
+			}
+		}
+	}
+	methodArgumentIdentifier compute.delayTime at   (31, 275) {
+		label at (0, -1)
+		outPin {
+			connection_15
+		}
+		sequenceCall at (-20, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier time at  (451, 285) {
+		label at (10, -1)
+		inPin connection_7 {
+			bendpoints (60, 0), (60, 70), (-190, 70), 
+		(-190, -20)
+		}
+		outPin {
+			connection_8
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_22 {
+				bendpoints 
+			(80, 0)
+			}
+		}
+	}
+	addition at  (561, 286) size (2, 6) {
+		inPin connection_8 inPin connection_16 outPin {
+			connection_7
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (451, 335) {
+		label at (10, -1)
+		inPin outPin {
+			connection_16
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	literal Boolean "false" at  (361, 443) size (49, 0) {
+		outPin {
+			connection_5
+		}
+	}
+	simpleIdentifier outbit at  (531, 445) {
+		label at (0, -1)
+		inPin connection_5 outPin sequenceCall at (20, -24) {
+			inPin connection_23 {
+				bendpoints (0, 140)
+			}
+		}
+	}
+	simpleIdentifier outbit at  (361, 525) {
+		label at (0, -1)
+		inPin outPin {
+			connection_17
+		}
+		sequenceCall at (20, -24) {
+			inPin
+		}
+	}
+	return at  (531, 525) {
+		label at (0, 0)
+		inPin connection_17 sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+}

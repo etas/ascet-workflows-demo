@@ -1,0 +1,106 @@
+classType SystemLib.CounterTimer.CounterEnabled
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_3
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_2
+		}
+	}
+	methodBody reset {
+		outPin {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier reset.initEnable at (51, 65) {
+		label at (0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	if at (191, 61) {
+		inPin connection_4
+		ifControlFlowOutPin {
+			connection_13
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	literal Numeric "0" at (51, 133) size (49, 0) {
+		outPin {
+			connection_8
+		}
+	}
+	simpleIdentifier counter at (271, 135) {
+		label at (0, -1)
+		inPin connection_8
+		outPin {
+			connection_6
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_13 {
+				bendpoints (30, 0), (30, 60)
+			}
+		}
+	}
+	return at (391, 135) {
+		label at (0, 0)
+		inPin connection_6 {
+			bendpoints (10, 0), (10, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_2
+		}
+	}
+	if at (191, 211) {
+		inPin connection_5
+		ifControlFlowOutPin {
+			connection_14
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_3
+		}
+	}
+	methodArgumentIdentifier compute.enable at (51, 215) {
+		label at (0, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall at (-50, -24) {
+			inPin
+		}
+	}
+	literal Numeric "1" at (51, 283) size (49, 0) {
+		outPin {
+			connection_12
+		}
+	}
+	simpleIdentifier counter at (271, 295) {
+		label at (0, -1)
+		inPin connection_10
+		outPin {
+			connection_11
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_14 {
+				bendpoints (30, 0), (30, 70)
+			}
+		}
+	}
+	addition at (131, 286) {
+		inPin connection_12
+		inPin connection_11 {
+			bendpoints (50, 0), (50, 50), (-190, 50)
+		}
+		outPin {
+			connection_10
+		}
+	}
+}

@@ -1,0 +1,214 @@
+classType model.MainClass
+blockdiagramSpecification Main {
+	methodBody step {
+		outPin active {
+			connection_266, connection_310, connection_262, connection_323, connection_318, connection_314, connection_278, connection_279, connection_316, connection_306, connection_308, connection_312, connection_285, connection_304
+		}
+	}
+	simpleIdentifier model.Signals.score at (501, 195) {
+		label at (0, -1)
+		inPin connection_324
+		sequenceCall {
+			inPin connection_323
+		}
+	}
+	simpleIdentifier model.Signals.servoPosition at (941, 455) {
+		label at (10, -1)
+		inPin connection_305
+		sequenceCall {
+			inPin connection_304
+		}
+	}
+	complexIdentifier gameController at (221, 121) size (22, 16) {
+		label at (0, 1)
+		methodCall model.GameController.gameState {
+			returnPin at (right, 12) {
+				connection_317, connection_315
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		methodCall model.GameController.periodicTrigger {
+			methodVoidPin at (top, 0) sequenceCall at (-14, -30) {
+				inPin connection_262
+			}
+		}
+		elementCall (model.GameController.score) {
+			returnPin at (right, 7) {
+				connection_324
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+		elementCall (model.GameController.ballPosition) {
+			argumentPin at (left, 4) connection_267
+			sequenceCall at (-60, -24) {
+				inPin connection_266
+			}
+		}
+		elementCall (model.GameController.startGame) {
+			argumentPin at (left, 12) connection_311
+			sequenceCall at (-60, -24) {
+				inPin connection_310
+			}
+		}
+		methodCall model.GameController.getTime {
+			returnPin at (right, 2) {
+				connection_319
+			}
+			sequenceCall at (0, 0) {
+				inPin
+			}
+		}
+	}
+	simpleIdentifier model.Signals.ballPosition at (61, 165) {
+		label at (0, -1)
+		outPin {
+			connection_267
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	simpleIdentifier model.Signals.handPosition at (521, 515) {
+		label at (0, -1)
+		outPin {
+			connection_309
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	simpleIdentifier model.Signals.startGameButton at (61, 245) {
+		label at (0, -1)
+		outPin {
+			connection_311
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	complexIdentifier ledController at (671, 121) size (22, 16) {
+		label at (10, 1)
+		methodCall model.LedController.periodicTrigger {
+			methodVoidPin at (top, 1) sequenceCall at (-14, -30) {
+				inPin connection_278
+			}
+		}
+		elementCall (model.LedController.ledRing) {
+			returnPin at (right, 7) {
+				connection_280
+			}
+			sequenceCall at (0, 0) {
+				inPin
+			}
+		}
+		elementCall (model.LedController.gameState) {
+			argumentPin at (left, 12) connection_315
+			sequenceCall at (-60, -24) {
+				inPin connection_314
+			}
+		}
+		elementCall (model.LedController.gameTime) {
+			argumentPin at (left, 2) connection_319
+			sequenceCall at (-60, -24) {
+				inPin connection_318
+			}
+		}
+	}
+	simpleIdentifier model.Signals.ledRing at (931, 171) {
+		label at (0, 1)
+		inPin inPin INDEX_SET_X elementCall (model.Signals.ledRing) {
+			argumentPin at (left, 0) connection_280
+			sequenceCall at (0, -54) {
+				inPin connection_279
+			}
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	complexIdentifier servoController at (671, 361) size (22, 25) {
+		label at (10, 1)
+		methodCall model.ServoController.periodicTrigger {
+			methodVoidPin at (top, 1) sequenceCall at (-14, -30) {
+				inPin connection_285
+			}
+		}
+		elementCall (model.ServoController.gameState) {
+			argumentPin at (left, 1) connection_317 {
+				bendpoints (130, 0), (130, 130)
+			}
+			sequenceCall at (-60, -24) {
+				inPin connection_316
+			}
+		}
+		elementCall (model.ServoController.switchMode) {
+			argumentPin at (left, 22) connection_313
+			sequenceCall at (-60, -24) {
+				inPin connection_312
+			}
+		}
+		elementCall (model.ServoController.handPosition) {
+			argumentPin at (left, 15) connection_309
+			sequenceCall at (-60, -24) {
+				inPin connection_308
+			}
+		}
+		elementCall (model.ServoController.ballPosition) {
+			argumentPin at (left, 8) connection_307
+			sequenceCall at (-60, -24) {
+				inPin connection_306
+			}
+		}
+		elementCall (model.ServoController.servoPosition) {
+			returnPin at (right, 9) {
+				connection_305
+			}
+			sequenceCall at (0, 0) {
+				inPin
+			}
+		}
+	}
+	simpleIdentifier model.Signals.autoModeButton at (521, 585) {
+		label at (0, -1)
+		outPin {
+			connection_313
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	simpleIdentifier model.Signals.ballPosition at (521, 445) {
+		label at (0, -1)
+		outPin {
+			connection_307
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	freeComment at (61, 191) {
+		"[0.0 .. 1.0]"
+	}
+	freeComment at (61, 271) {
+		"[0/1]"
+	}
+	freeComment at (521, 611) {
+		"[0/1]"
+	}
+	freeComment at (451, 131) {
+		"[0.0 .. 1.0]"
+	}
+	freeComment at (521, 471) {
+		"[0.0 .. 1.0]"
+	}
+	freeComment at (521, 541) {
+		"[0.0 .. 1.0]"
+	}
+	freeComment at (951, 481) {
+		"[0.0 .. 1.0]"
+	}
+}

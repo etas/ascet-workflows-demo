@@ -1,0 +1,9 @@
+Component SystemLib.Nonlinears.Signum size ( 4 , 3 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -2 , 0 )
+	
+	methodLayout value {
+		pin value ( Right , 1 )
+		pin x ( Left , 1 )
+	}
+}

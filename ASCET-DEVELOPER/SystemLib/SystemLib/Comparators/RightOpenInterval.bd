@@ -1,0 +1,75 @@
+classType SystemLib.Comparators.RightOpenInterval
+blockdiagramSpecification Main {
+	methodBody value {
+		outPin active {
+			connection_1
+		}
+	}
+	methodArgumentIdentifier value.A at (71, 75) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_2
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	lessOrEqual at  (251, 76) {
+		inPin connection_2 inPin connection_5 {
+			bendpoints (50, 0), 
+		(50, -40)
+		}
+		outPin {
+			connection_4
+		}
+	}
+	and at  (331, 86) size (2, 11) {
+		inPin connection_4 inPin connection_7 {
+			bendpoints (20, 0), 
+		(20, -40)
+		}
+		outPin {
+			connection_6
+		}
+	}
+	methodArgumentIdentifier value.x at (71, 135) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_5, connection_3
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	return at  (431, 135) {
+		label at (0, 0)
+		inPin connection_6 {
+			bendpoints 
+		(60, 0)
+		}
+		sequenceCall at (0, -14) {
+			inPin connection_1
+		}
+	}
+	less at  (251, 176) {
+		inPin connection_3 {
+			bendpoints (50, 0), 
+		(50, 40)
+		}
+		inPin connection_8 outPin {
+			connection_7
+		}
+	}
+	methodArgumentIdentifier value.B at (71, 195) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_8
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+}

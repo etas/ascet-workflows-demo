@@ -1,0 +1,13 @@
+<?SCHEMA schemaVersion="1.0"?>
+<SignalSourcesConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Program%20Files/Common%20Files/ETAS/Experiment%20Environment/3.8/Schemas/EE.Data.SignalSources.xsd" xsi:type="ETAS.EE.Data.SignalSourcesConfigurationType">
+  <SignalSourcesData xsi:type="ETAS.EE.Data.PluginDataListType">
+    <Item xsi:type="ETAS.EE.Data.PluginDataType" id="ID4f2eed3b-9f1e-4a01-838f-dc1f687b7abc" pluginID="System" rootFolder="System_Files">
+      <Documents xsi:type="ETAS.EE.Data.ExternalDocumentListType">
+        <Item xsi:type="ETAS.EE.Data.ExternalDocumentType" id="IDf19f769e-0c4b-48eb-a601-f0ebc79b8a66" type="" name="Configuration" file="Configuration.xml" />
+      </Documents>
+    </Item>
+  </SignalSourcesData>
+  <SignalSourceDeclarations xsi:type="ETAS.EE.Data.SignalSourceDeclarationListType">
+    <Item xsi:type="ETAS.EE.Data.SignalSourceDeclarationType" id="ID17e035e4-b37c-4ce9-8518-18a3ffd057de" type="VP" signalSourceId="System" name="Simulation_PC" active="true" />
+  </SignalSourceDeclarations>
+</SignalSourcesConfiguration>

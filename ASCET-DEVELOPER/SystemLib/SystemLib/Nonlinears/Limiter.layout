@@ -1,0 +1,11 @@
+Component SystemLib.Nonlinears.Limiter size ( 6 , 4 ) backgroundColor #ffffff {
+	hidePinNames
+	labelPosition ( -3 , 0 )
+	
+	methodLayout value {
+		pin value ( Right , 1 )
+		pin mn ( Top , 0 )
+		pin x ( Left , 1 )
+		pin mx ( Top , 4 )
+	}
+}

@@ -1,0 +1,177 @@
+classType SystemLib.Delay.TurnOnDelay
+blockdiagramSpecification Main {
+	methodBody compute {
+		outPin active {
+			connection_14, connection_1, connection_17
+		}
+	}
+	methodBody value {
+		outPin {
+			connection_3
+		}
+	}
+	ifElse at  (171, 31) {
+		inPin connection_4 ifControlFlowOutPin {
+			connection_23
+		}
+		elseControlFlowOutPin {
+			connection_24
+		}
+		sequenceCall at (-30, -14) {
+			inPin connection_1
+		}
+	}
+	methodArgumentIdentifier compute.signal at  (21, 35) {
+		label at (0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier compute.memloc at  (331, 95) {
+		label at (10, -1)
+		inPin outPin {
+			connection_8
+		}
+		sequenceCall at  (-10, -14) {
+			inPin
+		}
+	}
+	greater at  (461, 96) size (2, 6) {
+		inPin connection_8 inPin connection_9 {
+			bendpoints 
+		(70, 0)
+		}
+		outPin {
+			connection_7
+		}
+	}
+	if at  (521, 111) {
+		inPin connection_7 ifControlFlowOutPin {
+			connection_25
+		}
+		sequenceCall at  (0, -20) {
+			inPin connection_23 {
+				bendpoints 
+			(300, 0)
+			}
+		}
+	}
+	simpleIdentifier time at  (641, 145) {
+		label at (10, -1)
+		inPin connection_12 {
+			bendpoints (70, 0), (70, 60), 
+		(-190, 60), (-190, -20)
+		}
+		outPin {
+			connection_10
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_25 {
+				bendpoints (60, 0)
+			}
+		}
+	}
+	subtraction at  (761, 146) size (2, 5) {
+		inPin connection_10 inPin connection_13 outPin {
+			connection_12
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at  (641, 185) {
+		label at (10, -1)
+		inPin outPin {
+			connection_13
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	literal Numeric "0.0" at  (341, 143) size (49, 0) {
+		outPin {
+			connection_9
+		}
+	}
+	methodArgumentIdentifier compute.delayTime at  (21, 115) {
+		label at 
+		(0, -1)
+		outPin {
+			connection_6
+		}
+		sequenceCall at (-20, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier time at  (201, 115) {
+		label at (10, -1)
+		inPin connection_6 outPin sequenceCall at (0, -14) {
+			inPin connection_24 {
+				bendpoints (0, 40)
+			}
+		}
+	}
+	simpleIdentifier time at  (41, 285) {
+		label at (10, -1)
+		inPin outPin {
+			connection_15
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	simpleIdentifier compute.memloc at  (381, 285) {
+		label at (0, -1)
+		inPin connection_15 outPin sequenceCall at (-10, -14) {
+			inPin connection_14
+		}
+	}
+	methodArgumentIdentifier compute.signal at  (41, 355) {
+		label at (0, -1)
+		outPin {
+			connection_16
+		}
+		sequenceCall at (-10, -14) {
+			inPin
+		}
+	}
+	and at    (271, 356)  size (2, 8) {
+		inPin connection_16 inPin connection_22 outPin {
+			connection_18
+		}
+	}
+	simpleIdentifier buffer at  (381, 385) {
+		label at (0, -1)
+		inPin connection_18 outPin {
+			connection_19
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_17
+		}
+	}
+	return at  (501, 385) {
+		label at (0, 0)
+		inPin connection_19 sequenceCall at (0, -14) {
+			inPin connection_3
+		}
+	}
+	simpleIdentifier compute.memloc at   (31, 405) {
+		label at (0, -1)
+		inPin outPin {
+			connection_20
+		}
+		sequenceCall at  (-10, -14) {
+			inPin
+		}
+	}
+	lessOrEqual at   (191, 406) size (2, 5) {
+		inPin connection_20 inPin connection_21 outPin {
+			connection_22
+		}
+	}
+	literal Numeric "0.0" at   (41, 443) size (49, 0) {
+		outPin {
+			connection_21
+		}
+	}
+}

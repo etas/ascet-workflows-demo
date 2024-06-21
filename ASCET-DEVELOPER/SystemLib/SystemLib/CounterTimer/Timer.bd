@@ -1,0 +1,113 @@
+classType SystemLib.CounterTimer.Timer
+blockdiagramSpecification Main {
+	comment at (1, 21) {
+		"Timer decrements the time counter by dT and signals when the time counter has reached zero. It is not retriggerable."
+	}
+	methodBody compute {
+		outPin {
+			connection_9
+		}
+	}
+	methodBody isElapsed {
+		outPin {
+			connection_1
+		}
+	}
+	methodBody begin {
+		outPin {
+			connection_17
+		}
+	}
+	methodBody getTime {
+		outPin active {
+			connection_18
+		}
+	}
+	methodArgumentIdentifier begin.startTime at (61, 155) {
+		label at (0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall at (-40, -24) {
+			inPin
+		}
+	}
+	simpleIdentifier timeCounter at (211, 155) {
+		label at (0, -1)
+		inPin connection_4
+		outPin {
+			connection_6
+		}
+		sequenceCall at (10, -14) {
+			inPin connection_17
+		}
+	}
+	lessOrEqual at (371, 156) size (2, 5) {
+		inPin connection_6
+		inPin connection_7
+		outPin {
+			connection_5
+		}
+	}
+	return at (451, 175) {
+		label at (0, 0)
+		inPin connection_5
+		sequenceCall at (10, -14) {
+			inPin connection_1
+		}
+	}
+	literal Numeric "0.0" at (221, 193) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_7
+		}
+	}
+	subtraction at (221, 256) {
+		inPin connection_11 {
+			bendpoints (50, 0), (50, 70), (-440, 70), (-440, -20)
+		}
+		inPin connection_8
+		outPin {
+			connection_12
+		}
+	}
+	maximum at (371, 266) size (2, 4) {
+		inPin connection_12
+		inPin connection_13
+		outPin {
+			connection_10
+		}
+	}
+	simpleIdentifier timeCounter at (451, 275) {
+		label at (0, -1)
+		inPin connection_10
+		outPin {
+			connection_19, connection_11
+		}
+		sequenceCall at (-10, -14) {
+			inPin connection_9
+		}
+	}
+	literal Numeric "0.0" at (301, 293) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_13
+		}
+	}
+	simpleIdentifier SystemLib.Miscellaneous.DeltaTimeService.deltaT at (101, 275) {
+		label at (10, -1)
+		inPin outPin {
+			connection_8
+		}
+		sequenceCall at (-30, -24) {
+			inPin
+		}
+	}
+	return at (601, 275) {
+		label at (0, 0)
+		inPin connection_19
+		sequenceCall {
+			inPin connection_18
+		}
+	}
+}
