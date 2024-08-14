@@ -195,10 +195,7 @@ static void VL53L0X_PROXIMITY_Init(void) {
 
 static uint16_t VL53L0X_PROXIMITY_GetDistance(void) {
 	VL53L0X_RangingMeasurementData_t RangingMeasurementData;
-
-//	VL53L0X_PerformSingleRangingMeasurement(&Dev, &RangingMeasurementData);
 	VL53L0X_GetRangingMeasurementData(&Dev, &RangingMeasurementData);
-
 	return RangingMeasurementData.RangeMilliMeter;
 }
 
@@ -251,22 +248,7 @@ void ReadHandPosition() {
 	const double min_adc = 800.0;
 	const double max_adc = 2000.0;
 
-	static double buf[BUF_SIZE] = { 0.0 };
-	static uint8_t i = 0;
-
-
 	HAL_ADC_PollForConversion(&hadc1, 10);
-//
-//	buf[i] = (double) HAL_ADC_GetValue(&hadc1);
-//	i++;
-//	if (i >= BUF_SIZE) {
-//		i = 0;
-//	}
-//	double sum = 0.0;
-//	for (uint8_t j = 0; j < BUF_SIZE; j++) {
-//		sum += buf[j];
-//	}
-//	double distance_hand = (sum / ((double) BUF_SIZE));
 
 	double distance_hand = (double) HAL_ADC_GetValue(&hadc1);
 
