@@ -14,7 +14,6 @@ extern I2C_HandleTypeDef hi2c1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim6;
-extern DMA_HandleTypeDef hdma_tim3_ch1_trig;
 
 extern void Task_5ms();
 
