@@ -24,7 +24,7 @@ class ServoController {
 	real error = 0.0;
 	real integral = 0.0;
 	real lastValue = 0.0;
-	characteristic real kd = 0.03;
+	characteristic real kd = 0.44;
 
 	@no_side_effect
 	boolean isGameIdle() {
