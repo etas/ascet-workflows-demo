@@ -764,6 +764,39 @@
 			/* upper limit        */ 3.4028234663852886E+38
 		/end CHARACTERISTIC
 
+		/begin CHARACTERISTIC hardware.HandDistanceSensor.adcMin
+			/* long identifier    */ ""
+			/* type               */ VALUE
+			/* ecu address        */ 0x0
+			/* record layout      */ STANDARD_VALUE_R32
+			/* max diff value     */ 0.0
+			/* conversion         */ esdl_ident
+			/* lower limit        */ -3.4028234663852886E+38
+			/* upper limit        */ 3.4028234663852886E+38
+		/end CHARACTERISTIC
+
+		/begin CHARACTERISTIC hardware.HandDistanceSensor.adcMax
+			/* long identifier    */ ""
+			/* type               */ VALUE
+			/* ecu address        */ 0x0
+			/* record layout      */ STANDARD_VALUE_R32
+			/* max diff value     */ 0.0
+			/* conversion         */ esdl_ident
+			/* lower limit        */ -3.4028234663852886E+38
+			/* upper limit        */ 3.4028234663852886E+38
+		/end CHARACTERISTIC
+
+		/begin MEASUREMENT model.Signals.adcHandPosition
+			/* long identifier    */ ""
+			/* datatype           */ FLOAT32_IEEE
+			/* conversion         */ esdl_ident
+			/* resolution         */ 1
+			/* accuracy           */ 100.0
+			/* lower limit        */ -3.4028234663852886E+38
+			/* upper limit        */ 3.4028234663852886E+38
+			ECU_ADDRESS 0x0
+		/end MEASUREMENT
+
 		/begin MEASUREMENT model.Signals.score
 			/* long identifier    */ ""
 			/* datatype           */ FLOAT32_IEEE
@@ -1504,6 +1537,19 @@
 				model.MainClass.servoController.edgeDetect.oldSignal
 			/end LOC_MEASUREMENT
 		/end FUNCTION
+		/begin FUNCTION hardware.HandDistanceSensor
+			""
+			/begin DEF_CHARACTERISTIC
+				hardware.HandDistanceSensor.adcMin
+				hardware.HandDistanceSensor.adcMax
+			/end DEF_CHARACTERISTIC
+			/begin IN_MEASUREMENT
+				model.Signals.adcHandPosition
+			/end IN_MEASUREMENT
+			/begin OUT_MEASUREMENT
+				model.Signals.handPosition
+			/end OUT_MEASUREMENT
+		/end FUNCTION
 		/begin FUNCTION model.Signals.ledRing[0]
 			""
 			/begin LOC_MEASUREMENT
@@ -1605,6 +1651,14 @@
 			/* value              */ FNC_VALUES 1 FLOAT32_IEEE COLUMN_DIR DIRECT
 		/end RECORD_LAYOUT
 
+		/begin GROUP hardware.HandDistanceSensor
+			""
+			ROOT
+			/begin REF_CHARACTERISTIC
+				hardware.HandDistanceSensor.adcMin
+				hardware.HandDistanceSensor.adcMax
+			/end REF_CHARACTERISTIC
+		/end GROUP
 		/begin GROUP model.MainClass
 			""
 			ROOT
@@ -1811,6 +1865,7 @@
 			""
 			ROOT
 			/begin REF_MEASUREMENT
+				model.Signals.adcHandPosition
 				model.Signals.autoModeButton
 				model.Signals.ballPosition
 				model.Signals.handPosition

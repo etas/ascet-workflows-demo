@@ -244,28 +244,8 @@ void ReadBallPosition() {
 
 
 void ReadHandPosition() {
-
-	const double min_adc = 800.0;
-	const double max_adc = 2000.0;
-
 	HAL_ADC_PollForConversion(&hadc1, 10);
-
-	double distance_hand = (double) HAL_ADC_GetValue(&hadc1);
-
-	if (distance_hand >= max_adc) {
-		distance_hand = max_adc;
-	}
-	if (distance_hand <= min_adc) {
-		distance_hand = min_adc;
-	}
-	model_Signals_handPosition = map(distance_hand, min_adc, max_adc, 0.0, 1.0);
-
-	if (model_Signals_handPosition >= 1.0) {
-		model_Signals_handPosition = 1.0;
-	}
-	if (model_Signals_handPosition <= 0.0) {
-		model_Signals_handPosition = 0.0;
-	}
+	model_Signals_adcHandPosition = (double) HAL_ADC_GetValue(&hadc1);
 }
 
 /////////////////////////////////////////////////////////////////////////////////

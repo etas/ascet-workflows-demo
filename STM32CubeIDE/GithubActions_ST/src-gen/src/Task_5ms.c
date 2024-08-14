@@ -16,6 +16,7 @@
 
 DEF_GLB_DT_MEASURE;
 /* BEGIN process declarations */
+extern void hardware_HandDistanceSensor_Automatic_read(void);
 extern void model_MainClass_stm32f334r8_step(void);
 /* END process declarations */
 
@@ -33,6 +34,7 @@ void Task_5ms()
 	DEF_TASK_DT_MEASURE;
 	PRE_TASK_DT_MEASURE(1.0e-6*5000);
 	/* BEGIN process execution */
+	hardware_HandDistanceSensor_Automatic_read();
 	model_MainClass_stm32f334r8_step();
 	/* END process execution */
 	POST_TASK_DT_MEASURE;

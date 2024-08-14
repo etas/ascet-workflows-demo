@@ -27,6 +27,7 @@
 # error NOT COMPLIANT (< compliance level 7) VERSION OF esdl.h FOUND; To fix that, delete the old headers (esdl_<...>.h) in include folder and restart build again to get the new version of those files.
 #endif
 #include "chartab.h"
+#include "hardware_HandDistanceSensor_Automatic.h"
 #include "model_MainClass_stm32f334r8.h"
 #include "model_Signals_stm32f334r8.h"
 #include "SystemLib_Miscellaneous_DeltaTimeService_Automatic.h"

@@ -10,6 +10,7 @@
 #define PTR_model_LedController_stm32f334r8 PTR_MODEL_LEDCONTROLLER_STM32F334R8
 #define PTR_model_ServoController_Automatic PTR_MODEL_SERVOCONTROLLER_AUTOMATIC
 #define PTR_model_MainClass_stm32f334r8 PTR_MODEL_MAINCLASS_STM32F334R8
+#define PTR_hardware_HandDistanceSensor_Automatic PTR_HARDWARE_HANDDISTANCESENSOR_AUTOMATIC
 
 #define DisableAllInterrupts()
 #define EnableAllInterrupts()
