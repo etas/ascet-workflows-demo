@@ -1,0 +1,11 @@
+Component hardware.MappingUtil size ( 14 , 11 ) {
+	labelPosition ( 0 , 1 )
+	methodLayout map {
+		pin x ( Left , 1 )
+		pin in_min ( Left , 4 )
+		pin in_max ( Left , 5 )
+		pin out_min ( Left , 7 )
+		pin out_max ( Left , 8 )
+		pin map ( Right , 1 )
+	}
+}

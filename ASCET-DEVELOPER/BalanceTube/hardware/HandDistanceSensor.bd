@@ -1,0 +1,121 @@
+classType hardware.HandDistanceSensor
+blockdiagramSpecification Main {
+	methodBody read {
+		outPin active {
+			connection_10
+		}
+	}
+	container saturate at (601, 71) size (10, 5) {
+		label at (30, 1)
+		containerInPin in at (left, 1) connection_14
+		containerOutPin out at (right, 1) {
+			connection_11
+		}
+		literal Numeric "0.0" at (181, 133) size (49, 0) {
+			label at (0, 4)
+			outPin {
+				connection_12
+			}
+		}
+		containerPinIdentifier in at (101, 103) size (6, 1) {
+			outPin {
+				connection_9
+			}
+		}
+		maximum at (261, 106) {
+			inPin connection_9
+			inPin connection_12 {
+				bendpoints (10, 0), (10, -10)
+			}
+			outPin {
+				connection_8
+			}
+		}
+		literal Numeric "1.0" at (251, 153) size (49, 0) {
+			label at (0, 4)
+			outPin {
+				connection_13
+			}
+		}
+		containerPinIdentifier out at (411, 123) size (8, 1) {
+			inPin connection_15
+		}
+		minimum at (321, 116) {
+			inPin connection_8
+			inPin connection_13 {
+				bendpoints (10, 0), (10, -20)
+			}
+			outPin {
+				connection_15
+			}
+		}
+	}
+	complexIdentifier m at (391, 71) size (14, 11) {
+		label at (30, 1)
+		methodCall hardware.MappingUtil.map {
+			argumentPin x at (left, 1) connection_5
+			argumentPin in_min at (left, 4) connection_4
+			argumentPin in_max at (left, 5) connection_3 {
+				bendpoints (40, 0), (40, -20)
+			}
+			argumentPin out_min at (left, 7) connection_2 {
+				bendpoints (110, 0), (110, -60)
+			}
+			argumentPin out_max at (left, 8) connection_1 {
+				bendpoints (130, 0), (130, -70)
+			}
+			returnPin at (right, 1) {
+				connection_14
+			}
+			sequenceCall {
+				inPin
+			}
+		}
+	}
+	simpleIdentifier adcMin at (221, 115) {
+		label at (0, -1)
+		outPin {
+			connection_4
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	simpleIdentifier adcMax at (221, 145) {
+		label at (0, -1)
+		outPin {
+			connection_3
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	literal Numeric "0.0" at (171, 203) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_2
+		}
+	}
+	literal Numeric "1.0" at (171, 223) size (49, 0) {
+		label at (0, 4)
+		outPin {
+			connection_1
+		}
+	}
+	simpleIdentifier model.Signals.adcHandPosition at (91, 85) {
+		label at (-20, -1)
+		outPin {
+			connection_5
+		}
+		sequenceCall {
+			inPin
+		}
+	}
+	simpleIdentifier model.Signals.handPosition at (791, 85) {
+		label at (-20, -1)
+		inPin connection_11
+		sequenceCall {
+			inPin connection_10
+		}
+	}
+}

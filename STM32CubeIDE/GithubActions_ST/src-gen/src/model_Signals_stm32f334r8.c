@@ -40,10 +40,12 @@
 /******************************************************************************
  * BEGIN: DEFINITION OF MESSAGES
  * ----------------------------------------------------------------------------
- * Total size is [bytes]:........................54
+ * Total size is [bytes]:........................58
  * ---------------------------------------------------------------------------*/
 /* messages of memory class:............................................'RAM' */
 /* messages of size [bytes]:................................................4 */
+/* modelled as 'model_Signals_adcHandPosition' */
+float32 model_Signals_adcHandPosition = 0.0F;
 /* modelled as 'model_Signals_ballPosition' */
 float32 model_Signals_ballPosition = 0.0F;
 /* modelled as 'model_Signals_handPosition' */

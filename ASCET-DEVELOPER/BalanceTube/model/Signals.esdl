@@ -2,6 +2,8 @@ package model;
 
 data interface Signals using stm32f334r8 {
 	
+	real adcHandPosition = 0.0;
+
 	real score = 0.0;
 	real ballPosition = 0.0;
 	real handPosition = 0.0;
