@@ -38,7 +38,7 @@
 __attribute__((section(".ascet_calibration_rom")))
 const volatile struct model_ServoController_Automatic_CAL_MEM_SUBSTRUCT esdl_servoController_model_MainClass_CAL_MEM = {
    /* struct element:'esdl_servoController_model_MainClass_CAL_MEM.kd' (modeled as:'kd.servoController') */
-   0.03F,
+   0.44F,
    /* struct element:'esdl_servoController_model_MainClass_CAL_MEM.ki' (modeled as:'ki.servoController') */
    0.22F,
    /* struct element:'esdl_servoController_model_MainClass_CAL_MEM.kp' (modeled as:'kp.servoController') */
