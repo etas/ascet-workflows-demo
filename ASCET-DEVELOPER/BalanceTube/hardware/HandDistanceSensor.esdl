@@ -7,7 +7,9 @@ reads Signals.adcHandPosition
 writes Signals.handPosition {
 
 	MappingUtil m;
+	@get
 	characteristic real adcMin = 800.0;
+	@get
 	characteristic real adcMax = 2000.0;
 
 	@thread
