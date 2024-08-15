@@ -288,9 +288,6 @@ blockdiagramSpecification Main {
 			inPin connection_76
 		}
 	}
-	freeComment at (121, 121) {
-		"actual position"
-	}
 	subtraction at (301, 96) {
 		inPin connection_20
 		inPin connection_21 {
@@ -306,7 +303,7 @@ blockdiagramSpecification Main {
 			connection_20
 		}
 	}
-	freeComment at (121, 61) {
+	freeComment at (121, 31) {
 		"ball position setpoint\r\n(middle of tube)"
 	}
 	simpleIdentifier ballPosition at (131, 145) {
@@ -377,7 +374,7 @@ blockdiagramSpecification Main {
 			connection_82
 		}
 	}
-	freeComment at (311, 201) {
+	freeComment at (331, 181) {
 		"pre-control\r\n(start horizontally)"
 	}
 	addition at (281, 266) size (2, 5) {
@@ -392,16 +389,7 @@ blockdiagramSpecification Main {
 			connection_81
 		}
 	}
-	freeComment at (471, 211) {
+	freeComment at (571, 191) {
 		"Limit controller output."
-	}
-	freeComment at (141, 231) {
-		"PID Controller"
-	}
-	freeComment at (131, 171) {
-		"[0.0 .. 1.0]"
-	}
-	freeComment at (661, 301) {
-		"[0.0 .. 1.0]"
 	}
 }

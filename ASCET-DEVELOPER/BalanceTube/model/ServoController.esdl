@@ -44,7 +44,7 @@ class ServoController {
 	@generated("statemachine", "000000")
 	public void periodicTrigger() triggers ServoControllerStatemachine;
 
-	@generated("blockdiagram", "9d4a483c")
+	@generated("blockdiagram", "da74b6d4")
 	public void autoMode() {
 		error = (0.5 - ballPosition); // Main/autoMode 1
 		if (doIntegrate) {
