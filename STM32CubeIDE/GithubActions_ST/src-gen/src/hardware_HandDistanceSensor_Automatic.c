@@ -111,7 +111,7 @@ void hardware_HandDistanceSensor_Automatic_read (void)
    float32 _t1real32;
 
    _t1real32
-      = hardware_MappingUtil_Automatic_map(model_Signals_adcHandPosition__hardware_HandDistanceSensor_Automatic_read, adcMin_VAL, adcMax_VAL, 0.0F, 1.0F);
+      = hardware_MappingUtil_Automatic_map(model_Signals_adcHandPosition__hardware_HandDistanceSensor_Automatic_read, adcMin_VAL, adcMax_VAL, 1.0F, 0.0F);
    model_Signals_handPosition__hardware_HandDistanceSensor_Automatic_read
       = ((_t1real32 >= 0.0F) ? (((_t1real32 <= 1.0F) ? _t1real32 : 1.0F)) : 0.0F);
 }

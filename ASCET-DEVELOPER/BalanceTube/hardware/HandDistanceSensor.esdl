@@ -13,8 +13,8 @@ writes Signals.handPosition {
 	characteristic real adcMax = 2000.0;
 
 	@thread
-	@generated("blockdiagram", "54d31754")
+	@generated("blockdiagram", "931aadb8")
 	public void read() {
-		Signals.handPosition = min(max(m.map(Signals.adcHandPosition, adcMin, adcMax, 0.0, 1.0), 0.0), 1.0); // Main/read 1
+		Signals.handPosition = min(max(m.map(Signals.adcHandPosition, adcMin, adcMax, 1.0, 0.0), 0.0), 1.0); // Main/read 1
 	}
 }

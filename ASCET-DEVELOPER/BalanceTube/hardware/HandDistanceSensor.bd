@@ -90,13 +90,13 @@ blockdiagramSpecification Main {
 			inPin
 		}
 	}
-	literal Numeric "0.0" at (171, 203) size (49, 0) {
+	literal Numeric "1.0" at (171, 203) size (49, 0) {
 		label at (0, 4)
 		outPin {
 			connection_2
 		}
 	}
-	literal Numeric "1.0" at (171, 223) size (49, 0) {
+	literal Numeric "0.0" at (171, 223) size (49, 0) {
 		label at (0, 4)
 		outPin {
 			connection_1

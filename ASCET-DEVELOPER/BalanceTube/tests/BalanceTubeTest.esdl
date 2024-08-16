@@ -15,7 +15,7 @@ reads Signals.handPosition {
 	public void handPositionNormalization() {
 		Signals.adcHandPosition = sensor.adcMin;
 		sensor.read();
-		assert.assertDoubleEqual(Signals.handPosition, 0.0);
+		assert.assertDoubleEqual(Signals.handPosition, 1.0);
 		
 		Signals.adcHandPosition = (sensor.adcMax + sensor.adcMin) / 2;
 		sensor.read();
@@ -23,6 +23,6 @@ reads Signals.handPosition {
 		
 		Signals.adcHandPosition = sensor.adcMax;
 		sensor.read();
-		assert.assertDoubleEqual(Signals.handPosition, 1.0);
+		assert.assertDoubleEqual(Signals.handPosition, 0.0);
 	}
 }
