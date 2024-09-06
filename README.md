@@ -112,7 +112,7 @@ In this repository, we make use of the following workflows:
 
 This demo uses a self-hosted virtual machine (VM) that is equipped with the following software:
 
-* [ASCET-DEVELOPER Community Edition](https://www.etas.com/en/products/ascet_developer.php)
+* [ASCET-DEVELOPER Community Edition](https://www.etas.com/en/portfolio/ascet-developer.php)
 * [EHANDBOOK Container Build](https://www.etas.com/en/products/ehandbook_container_build.php)
   * Requires a license that can be requested from ETAS.
   * Extensive documentation can be found [online](https://ehandbook.etas.com/docs/ehandbook/index.html).
